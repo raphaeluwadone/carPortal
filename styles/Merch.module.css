@@ -1,0 +1,253 @@
+.merch_container {
+    max-width: 1650px;
+    height: 800px;
+    background-color: pink;
+    padding: 30px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  
+  .merch_container .main_section {
+    background-color: cyan;
+    height: 100%;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    border-radius: 30px;
+    padding: 20px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  
+  .merch_container .main_section .main_info {
+    background-color: #fff;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+  
+  .merch_container .main_section .main_info .img_container {
+    background-color: red;
+    width: 300px;
+    height: 400px;
+  }
+  
+  .merch_container .main_section .main_info .img_container img {
+    width: 100%;
+  }
+  
+  .merch_container .main_section .main_info .section_text {
+    background-color: purple;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    margin-left: 40px;
+    padding: 20px;
+  }
+  
+  .merch_container .main_section .main_info .section_text h4 {
+    color: orange;
+    font-size: 30px;
+    border-bottom: 2px solid grey;
+    padding-bottom: 15px;
+    padding-left: 15px;
+  }
+  
+  .merch_container .main_section .main_info .section_text .cart_btn {
+    background-color: blue;
+    margin-top: 30px;
+    width: 100%;
+    padding: 20px 0;
+    border: 1px solid grey;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 20px;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+  }
+  
+  .merch_container .main_section .main_info .section_text .cart_btn:hover {
+    -webkit-transform: scale(1.05);
+            transform: scale(1.05);
+  }
+  
+  .merch_container .main_section .main_info .section_text .section_price {
+    border-bottom: 2px solid grey;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    background-color: magenta;
+    min-height: 150px;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: space-evenly;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    /* margin-top: -30px; */
+  }
+  
+  .merch_container .main_section .main_info .section_text .section_price .price_variation {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 50px;
+    line-height: 12px;
+    max-width: 150px;
+    background-color: blue;
+  }
+  
+  .merch_container .main_section .main_info .section_text .section_price .price_variation .perc {
+    margin-left: 20px;
+    background-color: rgba(255, 0, 0, 0.527);
+    padding: 5px;
+    border-radius: 7px;
+    font-weight: bold;
+  }
+  
+  .merch_container .main_section .main_info .section_text .section_price .price_variation p {
+    font-size: 20px;
+    text-decoration: line-through;
+    color: rgba(0, 0, 0, 0.582);
+  }
+  
+  .merch_container .main_section .main_info .section_text .section_price .actual_price {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 0;
+    letter-spacing: 2px;
+    background-color: pink;
+  }
+  
+  .merch_container .main_section .main_info .section_text .section_price .variations {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .merch_container .desc h4 {
+    font-size: 25px;
+    font-style: italic;
+  }
+  
+  .merch_container .desc p {
+    font-size: 18px;
+    line-height: 25px;
+  }
+  
+  .merch_container .billing_info {
+    background-color: yellow;
+    width: 35vw;
+    padding: 30px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    height: 100%;
+    border-radius: 30px;
+    margin-left: 30px;
+  }
+  
+  .merch_container .billing_info .headline {
+    font-size: 30px;
+    border-bottom: 2px solid grey;
+    padding-bottom: 18px;
+    font-style: italic;
+  }
+  
+  .merch_container .billing_info .billing_text {
+    font-size: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .merch_container .billing_info .delivery_locale h2 {
+    border-bottom: 2px solid grey;
+    padding-bottom: 18px;
+    font-size: 30px;
+    font-style: italic;
+  }
+  
+  .merch_container .billing_info .delivery_locale ul {
+    list-style: none;
+    background-color: cyan;
+    padding-bottom: 30px;
+    border-bottom: 2px solid grey;
+  }
+  
+  .merch_container .billing_info .delivery_locale li {
+    margin-bottom: 15px;
+    font-size: 20px;
+  }
+  
+  .merch_container .billing_info .time_policy {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    border-bottom: 2px solid grey;
+    padding-bottom: 30px;
+  }
+  
+  .merch_container .billing_info .time_policy img {
+    background-color: #fff;
+    width: 50px;
+    height: 50px;
+    margin-right: 30px;
+  }
+  
+  .merch_container .billing_info .time_policy p {
+    font-size: 18px;
+  }
+  
+  .merch_container .billing_info .time_policy p span {
+    font-weight: bold;
+    font-style: italic;
+  }
+  
+  .merch_container .billing_info .return_policy {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-top: 20px;
+  }
+  
+  .merch_container .billing_info .return_policy img {
+    background-color: #fff;
+    width: 50px;
+    height: 50px;
+    margin-right: 30px;
+  }
+  
+  .merch_container .billing_info .return_policy p {
+    font-size: 18px;
+  }
+  
+  .merch_container .billing_info .return_policy p span {
+    font-weight: bold;
+    font-style: italic;
+  }
+.active {
+    color: black;
+    font-weight: bolder;
+}
+
+.inactive {
+    font-style: italic;
+    font-size: 14px !important;
+    color: rgb(88, 88, 88);
+}
