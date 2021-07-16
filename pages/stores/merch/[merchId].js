@@ -13,7 +13,7 @@ import { RiTruckLine } from 'react-icons/ri'
 import { CgTimer } from 'react-icons/cg'
 
 
-function singleMerch() {
+function SingleMerch() {
 
     const router = useRouter()
     const { merchId } = router.query
@@ -193,4 +193,4 @@ function singleMerch() {
 //     }
 // }
 
-export default singleMerch
+export default SingleMerch

@@ -9,7 +9,7 @@ import { userContext } from "../utils/userContext";
 import Cookies from 'js-cookie'
 import Router from 'next/router'
 
-function login() {
+function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
@@ -121,4 +121,4 @@ function login() {
   );
 }
 
-export default login;
+export default Login;

@@ -1,6 +1,6 @@
 import React from 'react'
 
-function affiliate() {
+function Affiliate() {
     return (
         <div>
             
@@ -8,4 +8,4 @@ function affiliate() {
     )
 }
 
-export default affiliate
+export default Affiliate

@@ -5,7 +5,7 @@ import { RotateSpinner } from 'react-spinners-kit'
 import Link from 'next/link'
 
 
-function events({eventsInfo}) {
+function Events({eventsInfo}) {
 
     // const [eventsInfo, setEventsInfo] = useState([])
     const [upcomingEvent, setUpcomingEvent] = useState([]);
@@ -113,4 +113,4 @@ export const getServerSideProps = async (pageContext) => {
     }
 }
 
-export default events
+export default Events

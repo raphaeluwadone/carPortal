@@ -7,7 +7,7 @@ import Link from 'next/link'
 
 
 
-function signup() {
+function Signup() {
     // const history = useHistory()
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
@@ -219,4 +219,4 @@ function signup() {
   }
   
 
-export default signup
+export default Signup

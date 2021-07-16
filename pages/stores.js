@@ -11,7 +11,7 @@ import Cookies from 'js-cookie'
 import { v4 as uuidv4 } from 'uuid';
 import { getNumberWithCommas } from '../utils/functions'
 
-function stores() {
+function Stores() {
   const [salute, setSalute] = useState(false);
   const [storeData, setStoreData] = useState([])
   const [bannerInfo, setBannerInfo] = useState({});
@@ -172,4 +172,4 @@ function stores() {
 //   };
 // };
 
-export default stores;
+export default Stores;

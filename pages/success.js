@@ -1,6 +1,6 @@
 import React from 'react'
 
-function success() {
+function Success() {
     return (
         <div>
             <h2>Payment successful</h2>
@@ -8,4 +8,4 @@ function success() {
     )
 }
 
-export default success
+export default Success
