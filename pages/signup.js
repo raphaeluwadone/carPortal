@@ -12,6 +12,7 @@ function signup() {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [phone, setPhone] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
     const [loading, setLoading] = useState(false)
     const [showToast, setShowToast] = useState(false)
@@ -33,7 +34,8 @@ function signup() {
         name,
         email,
         password,
-        password2: confirmPassword
+        password2: confirmPassword,
+        phone
       }
   
       axios.post('https://thecarportal.herokuapp.com/user/register/', data)
@@ -46,6 +48,7 @@ function signup() {
         setEmail('')
         setName('')
         setPassword('')
+        setPhone('')
         registered()
       })
       .catch(error => {
@@ -58,12 +61,14 @@ function signup() {
           setConfirmPassword('')
           setEmail('')
           setName('')
+          setPhone('')
           setPassword('')
         }else {
           setToastInfo({title: "Error!", msg: `${error.message}`, bg: "#df4759"})
           setShowToast(true)
           setConfirmPassword('')
           setEmail('')
+          setPhone('')
           setName('')
           setPassword('')  
         }
@@ -80,12 +85,14 @@ function signup() {
           setToastInfo({title: "Error!", msg: "Password & confirm password must match", bg: "#df4759"})
           setShowToast(true)
           setConfirmPassword('')
+          setPhone('')
           setPassword('')
       
       } else if(password.length < 8 ){
         setToastInfo({title: "Error!", msg: "Password must be at least 8 characters", bg: "#df4759"})
         setShowToast(true)
         setConfirmPassword('')
+        setPhone('')
         setPassword('')
       
       }  else {
@@ -109,7 +116,7 @@ function signup() {
         <section className={styles.login}>
           <div className={styles.imgBx}>
             <img
-              src='https://res.cloudinary.com/rafael-uwadone/image/upload/v1624096389/car-portal/daria-medvedeva-BXPS7yEHUfA-unsplash_utb3ny.jpg'
+              src='../assets/chris-demers-s_E337ZzhF8-unsplash.jpg'
               alt=""
             />
           </div>
@@ -143,6 +150,20 @@ function signup() {
                     autoComplete="off"
                     value={name}
                     onChange={(e)=> setName(e.target.value)}
+                  />
+                </div>
+                <div className={styles.inputBx}>
+                  <h5>Phone</h5>
+                  <div className="i">
+                    <i className="fas fa-user"></i>
+                  </div>
+                  <input
+                    type="phone"
+                    name="phone"
+                    className={styles.input}
+                    autoComplete="off"
+                    value={phone}
+                    onChange={(e)=> setPhone(e.target.value)}
                   />
                 </div>
                 <div className={styles.inputBx}>

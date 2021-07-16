@@ -4,10 +4,13 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick'
 import { TiShoppingCart } from "react-icons/ti"
-import { cartContext } from '../../../utils/cartContext'
+import { cartContext } from '../../../utils/CartContext'
 import Cart from '../../../components/Cart';
 import { useRouter } from 'next/router'
 import { v4 as uuidv4 } from 'uuid';
+import { getNumberWithCommas } from '../../../utils/functions'
+import { RiTruckLine } from 'react-icons/ri'
+import { CgTimer } from 'react-icons/cg'
 
 
 function singleMerch() {
@@ -15,7 +18,7 @@ function singleMerch() {
     const router = useRouter()
     const { merchId } = router.query
 
-    const [cart, setCart] = useState()
+    const [cart, setCart] = useContext(cartContext)
     const [showCart, setShowCart] = useState(false)
     const [inCart, setInCart] = useState(false)
     const [item, setItem] = useState()
@@ -23,41 +26,42 @@ function singleMerch() {
     const [id, setId] = useState(merchId)
 
     useEffect(() => {
+        // let newId = merchId ? merchId : localStorage.getItem('itemId')
+        // localStorage.setItem('itemId', newId)
+        // console.log(item);
+        // setCart(JSON.parse(localStorage.getItem('carPortalCart')))
         let data = JSON.parse(localStorage.getItem('storeData'))
-        let newId = merchId ? merchId : localStorage.getItem('itemId')
-        localStorage.setItem('itemId', newId)
-        const item = data.find(el => el.id == newId)
-        console.log(item);
+        const item = data.find(el => el.id == merchId)
         setItem(item);
-        setCart(JSON.parse(localStorage.getItem('carPortalCart')))
-        setLoading(false)
         console.log(cart);
+        setLoading(false)
     }, [])
 
-    useEffect(() => {
-        const cartState = setInterval(() => {
-           const currentCart = JSON.parse(localStorage.getItem('carPortalCart'))
-           let cartContained = currentCart.length > 1 ? true : false
-           setInCart(cartContained)
-            return () => {
-                clearInterval(cartState)
-            }
-        }, 5000);
-    }, [])
+    // useEffect(() => {
+    //     const cartState = setInterval(() => {
+    //        const currentCart = JSON.parse(localStorage.getItem('carPortalCart'))
+    //        let cartContained = currentCart.length > 1 ? true : false
+    //        setInCart(cartContained)
+    //         return () => {
+    //             clearInterval(cartState)
+    //         }
+    //     }, 5000);
+    // }, [])
 
     
     const addToCart = () => {
-        let currentCart = JSON.parse(localStorage.getItem('carPortalCart')) ? JSON.parse(localStorage.getItem('carPortalCart')) : []
-        const newCart = [...currentCart, 
+        // let currentCart = JSON.parse(localStorage.getItem('carPortalCart')) ? JSON.parse(localStorage.getItem('carPortalCart')) : []
+        const newCart = [...cart, 
             {
              img: item.images[0],
              stock: item.stock,
              id: uuidv4(),
              name: item.name,
-             price: item.new_price
+             price: item.new_price,
+             qty: 1
             }
         ]
-        localStorage.setItem('carPortalCart', JSON.stringify(newCart))
+        // localStorage.setItem('carPortalCart', JSON.stringify(newCart))
         setCart(newCart)
     }
 
@@ -96,8 +100,8 @@ function singleMerch() {
     return (
 <main className={styles.merch_container}>
        {showCart && <Cart hideShow={hideShow}/>}
-        <div className="cart_container">
-        {inCart && <div className="cart_content"></div>}
+        <div className={styles.cart_container}>
+        {cart.length > 0 && <div className="cart_content"></div>}
             <TiShoppingCart className='cart_icon' onClick={()=>setShowCart(true)} style={{cursor: "pointer"}}/>
         </div>
         <div className={styles.main_section}>
@@ -116,9 +120,9 @@ function singleMerch() {
                 <div className={styles.section_text}>
                     <h4 className={styles.section_head}>{item.name}</h4>
                     <div className={styles.section_price}>
-                        <p className={styles.actual_price}>{item.new_price}</p>
+                        <p className={styles.actual_price}>{'\u20A6'}{getNumberWithCommas(item.new_price)}</p>
                         <div className={styles.price_variation}>
-                            <p>{item.old_price}</p>
+                            <p>{'\u20A6'}{getNumberWithCommas(item.old_price)}</p>
                             <div className={styles.perc}>{item.discount}</div>
                         </div>
                         <div className={styles.variations}>
@@ -153,11 +157,12 @@ function singleMerch() {
                 </ul>
             </div>
             <div className={styles.time_policy}>
-                <img src="" alt="" />
+                {/* <img src="" alt="" /> */}
+                <RiTruckLine style={{width: '80px', height: '80px'}}/>
                 <p><span>Time Duration: </span>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
             </div>
             <div className={styles.return_policy}>
-                <img src="" alt="" />
+                <CgTimer style={{width: '80px', height: '80px'}}/>
                 <p><span>Return Policy: </span>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
             </div>
         </div>

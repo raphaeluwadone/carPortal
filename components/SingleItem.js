@@ -1,41 +1,94 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { GiCancel } from "react-icons/gi"
 import styles from '../styles/Cart.module.css'
-import { cartContext } from '../utils/cartContext'
+import { cartContext } from '../utils/CartContext'
+import { getNumberWithCommas } from '../utils/functions'
 
-function SingleItem({item, deleteFromCart}) {
-
-    const subTotal = () => {
-        let price = item.price.toString()
-        const char = price.split('')
-        // price = price.slice(1, price.length)
-        const firstChar = char.shift()
-        // let intVal = parseInt(price, 10)
-        console.log(price);
-    }
-
+function SingleItem({item, deleteFromCart, indPrices, pricesUpdate}) {
 
     const [qty, setQty] = useState(1)
     const [sumTotal, setSumTotal] = useState(item.price)
+    const [totalPrice, setTotalPrice] = useState('')
+    const [cart, setCart] = useContext(cartContext)
+    const [cartPrices, setCartPrices] = useState([])
+
+  const priceCompute = (qty) => {
+    let prices = indPrices?.map(element => {
+      if (element.id == item.id) {
+        return {id: element.id, price: element.price * qty}
+      }else{
+        return element
+      }
+    })
+    console.log(prices);
+    return prices
+  }
+
+
+    const subTotal = () => {
+      const newTotal = qty * item.price
+      setSumTotal(newTotal)
+    }
 
     const dec = () => {
-        if (qty <= 1) {
-            return
-        }
-        if (qty > 1) {
-            setQty(qty - 1)
-            return
-        }
+      if (qty <= 1) {
+        return
+      }
+      if (qty > 1) {
+        setQty(qty - 1)
+        let newCart = cart.map( (product ,i) => {
+          if (product.id == item.id) {
+            console.log(item.id, qty);
+              return {...product, qty: qty - 1}
+          }else {
+            return product
+          }
+        })
+        console.log(newCart);
+        setCart(newCart)
+    }
     }
 
     const inc = (stock) => {
-        if (qty >= stock) {
-            return
-        }if (qty < stock) {
-            setQty(qty + 1)
-            return
+      if (qty >= stock) {
+        return
+      }if (qty < stock) {
+        setQty(qty + 1)
+        let newCart = cart.map( (product ,i) => {
+          if (product.id == item.id) {
+            console.log(item.id, qty);
+              return {...product, qty: qty + 1}
+          }else {
+            return product
+          }
+        })
+        console.log(newCart);
+        setCart(newCart)
         }
     }
+    useEffect(() => {
+     const sumTotal = cart.reduce((total, prod) => {
+        return total + (prod.qty * prod.price)
+     },0)
+    }, [cart])
+  
+
+
+    useEffect(() => {
+      subTotal()
+      // setNewPrice(cartPrices)
+      // let newPrices = cartPrices?.forEach(element => {
+      //   if (element.id == item.id) {
+      //     setNewPrice(...newPrice, {id: element.id, price: element.price * qty})
+      //   }else {
+      //     setNewPrice(...newPrice, element)
+      //   }
+
+      //   console.log(newPrices);
+      // });
+      // console.log(newPrice);
+      // console.log(newPrices);
+    }, [qty])
 
   return (
     <div className={styles.cart_item}>
@@ -48,27 +101,27 @@ function SingleItem({item, deleteFromCart}) {
           <img src={item.img} alt="" />
         </div>
         <div className={styles.item_desc}>
-          <p className={styles.item_title}>{item.name}</p>
-          <p className={styles.item_price}>{item.price}</p>
+          <p className={styles.item_title} onClick={()=>console.log(cartPrices)}>{item.name}</p>
+          <p className={styles.item_price}>{'\u20A6'}{getNumberWithCommas(item.price)}</p>
         </div>
       </div>
       <div className={styles.stock}>
         <div className={styles.stock_qty}>
           <button
             onClick={dec}
-            style={{ background: `${qty <= 1 ? "grey" : ""}` }}
+            style={{ background: `${qty <= 1 ? "#d3d3d3" : ""}` }}
           >
             -
           </button>
           <div>{qty}</div>
           <button
             onClick={() => inc(item.stock)}
-            style={{ background: `${qty >= item.stock ? "grey" : ""}` }}
+            style={{ background: `${qty >= item.stock ? "#d3d3d3" : ""}` }}
           >
             +
           </button>
         </div>
-        <p className={styles.subtotal} onClick={subTotal}>{sumTotal}</p>
+        <p className={styles.subtotal}>{'\u20A6'}{getNumberWithCommas(sumTotal)}</p>
       </div>
     </div>
   );
