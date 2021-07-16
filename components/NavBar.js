@@ -8,7 +8,9 @@ function NavBar() {
         <>
             <nav className={styles.nav}>
               <div className={styles.nav_brand}>
-                  <Link href='/'><h3>The Car Portal</h3></Link>
+                  {/* <Link href='/'>
+                      <img src="../../assets/" alt="" width="200px"/>
+                  </Link> */}
               </div>
                 <ul className={styles.nav_links}>
                     <li><Link href='/about'><a>About</a></Link></li>

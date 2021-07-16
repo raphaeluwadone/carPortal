@@ -77,14 +77,14 @@ function stores() {
   //   }, 3000);
   // }, [salute]);
 
-  // if (data.status_code !== 200) {
-  //   return salute && <Banner bannerInfo={bannerInfo} />;
-  // }
   useEffect(() => {
     console.log(storeData)
     console.log(cart);
   }, [storeData])
-
+  
+  // if (storeData?.status_code !== 200) {
+  //   return ;
+  // }
   if (loading) {
     return <h2>Loading data...</h2>
   }
@@ -95,7 +95,7 @@ function stores() {
       <div className={styles.tabs}>
       <div className="cart_container" style={{top: '150px'}}>
             {cart?.length > 0 && <div className="cart_content"></div>}
-            <TiShoppingCart className='cart_icon' onClick={()=>setShowCart(true)} style={{cursor: "pointer"}}/>
+            <TiShoppingCart className='cart_icon' onClick={()=>setShowCart(true)} style={{cursor: "pointer", color: 'white'}}/>
         </div>
         <div className={styles.title}>
           <h2>Stores</h2>
@@ -104,7 +104,7 @@ function stores() {
         <main className={styles.store}>
           <section className={styles.btn_container}>
             <div
-              className={`${styles.btn}`}
+              className={`${styles.btn} ${styles.active}`}
             >
               Merch
             </div>
@@ -129,9 +129,7 @@ function stores() {
                                 <p className={styles.perc}>{item.discount}</p>
                             </div>
                         </div>
-                        <Link href={`/stores/merch/${item.id}`} as={`/stores/merch/${item.id}`}>
-                          <p className={styles.item_desc}>{item.description}</p>
-                        </Link>
+                          <p className={styles.item_desc}>[{item.merch_size}]</p>
                         </div> 
                     <div className={styles.btn_cart_container}>
                       <div className={styles.link_btn}>

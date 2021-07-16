@@ -24,15 +24,15 @@ function login() {
     const data = {email, password}
     axios.post('https://thecarportal.herokuapp.com/user/login/', data)
     .then(response => {
-      console.log(response.data.user_data);
-      localStorage.setItem('carPortalUser', JSON.stringify(response.data.user_data))
+      localStorage.setItem('carPortalUser', JSON.stringify(response.data))
       setUserData(response.data)
       setLoading(false)
       setToastInfo({title: "Success!", msg: `Welcome ${email}`, bg: "#26a62e"})
       setShowToast(true)
       localStorage.setItem("carToken", response.data.token)
-      let inHour = 1/24
+      let inHour = 1/12
       Cookies.set("carToken", response.data.token, {expires: inHour})
+      // Cookies.set("carPortalUser", response.data)
       Router.replace('/stores')
       setEmail('')
       setPassword('')

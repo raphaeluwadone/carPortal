@@ -102,7 +102,7 @@ function singleMerch() {
        {showCart && <Cart hideShow={hideShow}/>}
         <div className={styles.cart_container}>
         {cart.length > 0 && <div className="cart_content"></div>}
-            <TiShoppingCart className='cart_icon' onClick={()=>setShowCart(true)} style={{cursor: "pointer"}}/>
+            <TiShoppingCart className='cart_icon' onClick={()=>setShowCart(true)} style={{cursor: "pointer", color: 'white'}}/>
         </div>
         <div className={styles.main_section}>
             <div className={styles.main_info}>
@@ -144,26 +144,27 @@ function singleMerch() {
         <div className={styles.billing_info}>
             <h4 className={styles.headline}>Delivery Info</h4>
             <p className={styles.billing_text}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                Coming Soon!!!
+                {/* Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                 Unde vel aspernatur odit quis corrupti perferendis. 
-                Sequi expedita magni atque error?
+                Sequi expedita magni atque error? */}
             </p>
             <div className={styles.delivery_locale}>
                 <h2>Available Location</h2>
                 <ul>
-                    <li className={item.location === 'Lagos' ? styles.active : styles.inactive}>Lagos</li>
-                    <li className={item.location === 'Ife' ? styles.active : styles.inactive}>Ife</li>
-                    <li className={item.location === 'Ibadan' ? styles.active : styles.inactive}>Ibadan</li>
+                    <li className={styles.active}>Lagos</li>
+                    {/* <li className={item.location === 'Ife' ? styles.active : styles.inactive}>Ife</li>
+                    <li className={item.location === 'Ibadan' ? styles.active : styles.inactive}>Ibadan</li> */}
                 </ul>
             </div>
             <div className={styles.time_policy}>
                 {/* <img src="" alt="" /> */}
                 <RiTruckLine style={{width: '80px', height: '80px'}}/>
-                <p><span>Time Duration: </span>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+                {/* <p><span>Time Duration: </span>Lorem ipsum dolor sit amet, consectetur adipisicing.</p> */}
             </div>
             <div className={styles.return_policy}>
                 <CgTimer style={{width: '80px', height: '80px'}}/>
-                <p><span>Return Policy: </span>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+                {/* <p><span>Return Policy: </span>Lorem ipsum dolor sit amet, consectetur adipisicing.</p> */}
             </div>
         </div>
     </main>

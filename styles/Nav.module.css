@@ -2,8 +2,8 @@
     width: 100%;
     height: 100px;
     padding: 0 50px;
-    color: black;
-    background-color: white;
+    color: white;
+    background-color: black;
     display: flex;
     justify-content: space-between;
     box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
@@ -11,11 +11,12 @@
 }
 
 .nav_brand {
-    width: 230px;
+    width: 100px;
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background-image: url('../assets/carPLogo1.png');
+    background-position: center;
+    background-size: cover;
+
 }
 
 .nav_links {
@@ -24,7 +25,11 @@
     justify-content: space-between;
     align-items: center;
     list-style: none;
-    color: black;
+    color: white;
+}
+
+.nav_links li:hover {
+    /* color: cyan; */
 }
 
 .nav_links li a{
@@ -51,3 +56,6 @@
     color: black;
 }
 
+.auth_btn a{
+    color: inherit !important;
+}
