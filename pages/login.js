@@ -24,7 +24,8 @@ function login() {
     const data = {email, password}
     axios.post('https://thecarportal.herokuapp.com/user/login/', data)
     .then(response => {
-      console.log(response.data);
+      console.log(response.data.user_data);
+      localStorage.setItem('carPortalUser', JSON.stringify(response.data.user_data))
       setUserData(response.data)
       setLoading(false)
       setToastInfo({title: "Success!", msg: `Welcome ${email}`, bg: "#26a62e"})

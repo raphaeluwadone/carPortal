@@ -6,6 +6,7 @@ import { CgTrash } from "react-icons/cg"
 import { BsBoxArrowInLeft } from "react-icons/bs";
 import SingleItem from './SingleItem'
 import { getNumberWithCommas } from '../utils/functions'
+import PaymentComponent from '../utils/FlutterWave'
 
 
 
@@ -97,7 +98,7 @@ function Cart({hideShow}) {
         {cart.length > 0 && <h5>{'\u20A6'}{getNumberWithCommas(sumTotal)}</h5>}
         </div>
         <div className={styles.cart_btn} style={{opacity: `${cart?.length > 0 ? '1' : '0'}`}}>
-            <button>Checkout</button>
+            <PaymentComponent sumTotal={sumTotal}/>
         </div>
     </main>
         </div>
