@@ -57,6 +57,7 @@
   .store .btn_container {
     width: auto;
     background-color: #e5e5e5;
+    height: 200px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -120,6 +121,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    position: relative;
     align-items: center;
     border-radius: 12px;
     margin: 20px 30px;
