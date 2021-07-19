@@ -12,7 +12,7 @@ export default function App({sumTotal}) {
     // const user = Cookies.get('carPortalUser')
     console.log(user_data.email);
    const config = {
-    public_key: 'FLWPUBK-9aa80318f2a5750a13adec6941c6771c-X',
+    public_key: 'FLWPUBK-87d1183b60860c570373c9f8157cf3cf-X',
     tx_ref: Date.now(),
     amount: sumTotal,
     currency: 'NGN',
@@ -26,7 +26,7 @@ export default function App({sumTotal}) {
     customizations: {
       title: 'CarPortal Checkout',
       description: 'Payment for items in cart',
-      logo: 'https://st2.depositphotos.com/4403291/7418/v/450/depositphotos_74189661-stock-illustration-online-shop-log.jpg',
+      logo: 'https://res.cloudinary.com/rafael-uwadone/image/upload/v1626600376/car-portal/5_kflre8.png',
     },
   };
 

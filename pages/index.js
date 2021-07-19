@@ -18,7 +18,7 @@ export default function Home() {
             <div className={styles.headline}>
                 <h1>The Car Portal</h1>
                 <h3>Your best bet in anything Automobile related</h3>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque doloribus corporis ad enim, et ab neque quam fuga atque accusantium. At odit tenetur dolorem voluptas laudantium natus voluptates, quo iusto.</p>
+                <p>Founded in 2020, The car portal is a space that talks about cars, a space where you find anything about cars and car related stuff Started as an Instagram blog, expanding the horizon to car sales, fun YouTube videos, cool car merch</p>
             </div>
             <div className={styles.navs}>
                 <div className={styles.nav__links}>

@@ -45,13 +45,14 @@
   }
   
   .store {
-    width: 1200px;
+    max-width: 1200px;
     margin: 0 auto;
     height: auto;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     justify-content: space-center;
+    background-color: red;
   }
   
   .store .btn_container {
@@ -126,7 +127,7 @@
     border-radius: 12px;
     margin: 20px 30px;
     transition: all .2s ease-in;
-    
+    text-align: center;
   }
 
   .single_store:hover {
@@ -280,6 +281,8 @@
       -webkit-box-direction: normal;
           -ms-flex-direction: column;
               flex-direction: column;
+              width: 100%;
+              align-items: center;
     }
     .store .btn_container {
       background-color: yellowgreen;
@@ -309,6 +312,11 @@
     .store .btn_container .active {
       border-bottom: 2px solid cyan;
       border-left: 0;
+    }
+
+    .store .main_content {
+      width: 100%;
+      justify-content: center;
     }
   }
   

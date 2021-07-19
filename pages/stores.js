@@ -15,6 +15,7 @@ import fetch from 'isomorphic-unfetch'
 import Head from 'next/head'
 import CartToast from '../components/CartToast'
 import StoreItem from "../components/StoreItem";
+import { RotateSpinner } from 'react-spinners-kit'
 
 
 function Stores(props) {
@@ -25,6 +26,7 @@ function Stores(props) {
   const [loading, setLoading] = useState(false)
   const [userData, setUserData] = useContext(userContext);
   const [cart, setCart] = useContext(cartContext);
+  const [user, setUser] = useState('')
 
 
   const hideShow = () => {
@@ -61,13 +63,15 @@ function Stores(props) {
   // }, [salute]);
 
   useEffect(() => {
-    console.log(props.data)
-    console.log(cart);
+    if (props.data?.status_code !== 200) {
+      const reRoute = () => Router.replace('/login')
+      reRoute()
+    }
+    const userInfo = JSON.parse(localStorage.getItem('carPortalUser'))
+    const userName = userInfo.username
+    setUser(userName)
   }, [])
   
-  if (props.data?.status_code !== 200) {
-    Router.push('/login')
-  }
 
   return (
     <>
@@ -79,6 +83,7 @@ function Stores(props) {
     {showCart && <Cart hideShow={hideShow}/> }
       <div className={styles.tabs}>
       <div className="cart_container" style={{top: '150px'}}>
+          <p>{user}</p>
             {cart?.length > 0 && <div className="cart_content"></div>}
             <TiShoppingCart className='cart_icon' onClick={()=>setShowCart(true)} style={{cursor: "pointer", color: 'white'}}/>
         </div>
@@ -107,7 +112,7 @@ function Stores(props) {
                 );
               })
             ) : (
-              <h2>Store Empty</h2>
+              <RotateSpinner size={40} color={'#0303aa'} loading={true} styles={{marginLeft: '200px'}}/> 
             )}
           </section>
         </main>

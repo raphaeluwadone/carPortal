@@ -11,6 +11,7 @@ import Router from 'next/router'
 import { useJwt } from 'react-jwt'
 import  Image from 'next/image'
 import Head from 'next/head'
+import Sidebar from "../components/Sidebar";
 
 
 function Login() {
@@ -34,7 +35,7 @@ function Login() {
       setLoading(false)
       setToastInfo({title: "Success!", msg: `Welcome ${email}`, bg: "#26a62e"})
       setShowToast(true)
-      localStorage.setItem("carToken", response.data.token)
+      // localStorage.setItem("carToken", response.data.token)
       let inHour = 1/12
       Cookies.set("carToken", response.data.token, {expires: inHour})
       // Cookies.set("carPortalUser", response.data)
@@ -43,11 +44,17 @@ function Login() {
       setPassword('')
     })
     .catch(error => {
+      if(error.response){
+        setShowToast(true)
+        setToastInfo({title: "Error!", msg: `${error.response.data.non_field_errors[0]}`, bg: "#df4759"})
+        setLoading(false)
+      }
+      else {
+        setShowToast(true)
+        setToastInfo({title: "Error!", msg: `Check your internet connection and try again.`, bg: "#df4759"})
+        setLoading(false)
+      }
       console.log(error);
-      console.log(error);
-      setShowToast(true)
-      setToastInfo({title: "Error!", msg: `${error.response.data.non_field_errors[0]}`, bg: "#df4759"})
-      setLoading(false)
       setEmail('')
       setPassword('')
     });
@@ -73,6 +80,7 @@ function Login() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <section className={styles.login}>
+      
         <div className={styles.imgBx}>
           <img src="https://res.cloudinary.com/rafael-uwadone/image/upload/v1624096399/car-portal/pexels-pixabay-326259_kpieq1.jpg" alt="ted" />
         
@@ -117,7 +125,7 @@ function Login() {
                  <input type="submit" value="Login" />
                  :
                  <div style={{margin:'50px'}}>
-                   <RotateSpinner size={30} color={'#2fd03a'} loading={loading}/>
+                   <RotateSpinner size={30} color={'#0303aa'} loading={loading}/>
                  </div>
                 }
               </div>

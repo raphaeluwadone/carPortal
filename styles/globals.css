@@ -114,6 +114,10 @@ body {
   position: absolute;
   right: 60px;
   top: 10px;
+  font-weight: bolder;
+  color: white;
+  text-align: center;
+  mix-blend-mode: difference;
 }
 
 .cart_content {
@@ -137,8 +141,8 @@ body {
 }
 
 .cart_toast {
-  background-color: rgb(0, 174, 255);
-  border: 1px solid white;
+  background-color: #32fa8f;
+  border: 2px solid white;
   border-radius: 10px;
   display: flex;
   justify-content: center;
@@ -150,4 +154,22 @@ body {
   width: 150px;
   height: 70px;
 
+}
+
+.nav__menu {
+  display: none;
+}
+
+@media screen and (max-width: 800px) {
+
+  .nav__menu {
+    display: block;
+    color: rgb(27, 255, 255);
+    position: absolute;
+    z-index: 900;
+    font-size: 50px;
+    top: 10px;
+    right: 30px;
+    text-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
 }
