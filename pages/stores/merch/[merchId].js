@@ -22,11 +22,8 @@ function SingleMerch({item}) {
 
     const [cart, setCart] = useContext(cartContext)
     const [showCart, setShowCart] = useState(false)
-    const [inCart, setInCart] = useState(false)
+    const [size, setSize] = useState(item.merch_size)
     const [user, setUser] = useState()
-    // const [item, setItem] = useState()
-    const [loading, setLoading] = useState(true)
-    const [id, setId] = useState(merchId)
 
 
     // useEffect(() => {
@@ -50,7 +47,8 @@ function SingleMerch({item}) {
              id: uuidv4(),
              name: item.name,
              price: item.new_price,
-             qty: 1
+             qty: 1,
+             size
             }
         ]
         // localStorage.setItem('carPortalCart', JSON.stringify(newCart))
@@ -130,6 +128,12 @@ function SingleMerch({item}) {
                         </div>
                         <div className={styles.variations}>
                         <p>Color Variation: {item.color_variation}</p>
+                        <span className="sizes">
+                                <p className={`${size == 'SM' ? 'active_size' : ''}`} onClick={() => setSize('SM')}>SM</p>
+                                <p className={`${size == 'M' ? 'active_size' : ''}`} onClick={() => setSize('M')}>M</p>
+                                <p className={`${size == 'L' ? 'active_size' : ''}`} onClick={() => setSize('L')}>L</p>
+                                <p className={`${size == 'XL' ? 'active_size' : ''}`} onClick={() => setSize('XL')}>XL</p>
+                            </span>
                         </div>
                     </div>
                     <button className={styles.cart_btn} onClick={addToCart}>Add To Cart</button>

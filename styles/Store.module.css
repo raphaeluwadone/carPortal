@@ -52,7 +52,6 @@
     display: -ms-flexbox;
     display: flex;
     justify-content: space-center;
-    background-color: red;
   }
   
   .store .btn_container {
@@ -225,7 +224,6 @@
   }
 
   .store .main_content .lead {
-    background-color: red;
     /* width: 70vw; */
     position: relative;
     padding: 0 20px;
@@ -337,7 +335,6 @@
       display: none !important;
     }
     .store .main_content .lead {
-      background-color: red;
       align-items: center;
       flex-direction: column;
     }

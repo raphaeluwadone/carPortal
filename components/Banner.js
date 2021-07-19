@@ -1,10 +1,29 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import styles from '../styles/Banner.module.css'
+import {userContext} from '../utils/userContext'
+import Link from 'next/link'
 
-function Banner({bannerInfo}) {
+function Banner({setShow}) {
+
+    const [userData, setUserData] = useContext(userContext)
     return (
-        <div className={styles.banner_container} style={{background: `${bannerInfo.bg}`}}>
-            <h2 style={{color: `${bannerInfo.text}`}}>{bannerInfo.text}</h2>
+        <div className={styles.banner__container} onClick={setShow}>
+            <p>
+            <h2>Welcome {userData.username} to the carPortal</h2>
+            <p>Where would you like to visit next?</p>
+            </p>
+            <div className={styles.link_container}>
+                <Link href="/events">
+                    <a>
+                        Events
+                    </a>
+                </Link>
+                <Link href="/stores">
+                    <a>
+                        Store
+                    </a>
+                </Link>
+            </div>
         </div>
     )
 }

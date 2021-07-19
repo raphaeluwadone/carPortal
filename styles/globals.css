@@ -127,7 +127,7 @@ body {
   background-color: orange;
   position: absolute;
   right: 2px;
-  top: 5px;
+  bottom: 0px;
   opacity: .9;
 }
 
@@ -172,4 +172,31 @@ body {
     right: 30px;
     text-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   }
+}
+
+
+.sizes{
+  display: flex;
+  justify-content: space-between;
+  width: 130%;
+  margin-top: 20px;
+
+}
+
+.sizes p{
+  cursor: pointer;
+  transition: all .2s ease-in;
+  font-weight: normal;
+
+}
+
+.sizes p:hover{
+  transform: scale(1.2);
+}
+
+p.active_size {
+  color: #0303aa;
+  font-weight: bold;
+  padding-bottom: 3px;
+  border-bottom:3px solid #0303aa;
 }

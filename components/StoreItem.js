@@ -10,9 +10,9 @@ function StoreItem({item}) {
 
     const [showCartToast, setShowCartToast] = useState(false);
     const [cart, setCart] = useContext(cartContext);
+    const [size, setSize] = useState(item.merch_size)
 
     const addToCart = (img, name, stock, price) => {
-        // let currentCart = JSON.parse(localStorage.getItem('carPortalCart')) ? JSON.parse(localStorage.getItem('carPortalCart')) : []
         const newCart = [...cart, 
             {
              img,
@@ -20,7 +20,8 @@ function StoreItem({item}) {
              id: uuidv4(),
              name,
              price,
-             qty: 1
+             qty: 1,
+             size
             }
         ]
         // localStorage.setItem('carPortalCart', JSON.stringify(newCart))
@@ -52,7 +53,12 @@ function StoreItem({item}) {
                                 <p className={styles.perc}>{item.discount}</p>
                             </div>
                         </div>
-                          <p className={styles.item_desc}>[{item.merch_size}]</p>
+                        <div className="sizes">
+                            <p className={`${size == 'SM' ? 'active_size' : ''}`} onClick={() => setSize('SM')}>SM</p>
+                            <p className={`${size == 'M' ? 'active_size' : ''}`} onClick={() => setSize('M')}>M</p>
+                            <p className={`${size == 'L' ? 'active_size' : ''}`} onClick={() => setSize('L')}>L</p>
+                            <p className={`${size == 'XL' ? 'active_size' : ''}`} onClick={() => setSize('XL')}>XL</p>
+                        </div>
                         </div> 
                     <div className={styles.btn_cart_container}>
                       <div className={styles.link_btn}>

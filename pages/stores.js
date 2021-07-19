@@ -55,13 +55,6 @@ function Stores(props) {
     setSalute(true)
 }
 
-  // useEffect(() => {
-  //   console.log(userData);
-  //   setTimeout(() => {
-  //     setSalute(false);
-  //   }, 3000);
-  // }, [salute]);
-
   useEffect(() => {
     if (props.data?.status_code !== 200) {
       const reRoute = () => Router.replace('/login')
@@ -121,24 +114,6 @@ function Stores(props) {
   );
 }
 
-// Stores.getInitialProps = async (ctx) => {
-//   const token = ctx.req.cookies.carToken;
-//   let config = {
-//     headers: {
-//       Authorization: `Bearer ${token}`,
-//     },
-//   };
-//   let response = await fetch(
-//     "http://thecarportal.herokuapp.com/store/merch/",
-//     config
-//   );
-//   let data = await response.json();
-
-//   return {
-//     data: data.message
-//   };
-// };
-
 
 export default Stores;
 
@@ -164,7 +139,7 @@ export const getServerSideProps = async ({ req }) => {
   } catch (error) {
     return {
       redirect: {
-          destination: '/ErrorPage',
+          destination: '/404',
           permanent: false,
       }
     };

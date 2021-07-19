@@ -102,7 +102,7 @@ function SingleItem({item, deleteFromCart, indPrices, pricesUpdate}) {
         </div>
         <div className={styles.item_desc}>
           <p className={styles.item_title} onClick={()=>console.log(cartPrices)}>{item.name}</p>
-          <p className={styles.item_price}>{'\u20A6'}{getNumberWithCommas(item.price)}</p>
+          <p className={styles.item_price}>{'\u20A6'}{getNumberWithCommas(item.price)}<span className={styles.size}>{item.size}</span></p>
         </div>
       </div>
       <div className={styles.stock}>

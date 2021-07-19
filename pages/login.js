@@ -12,6 +12,7 @@ import { useJwt } from 'react-jwt'
 import  Image from 'next/image'
 import Head from 'next/head'
 import Sidebar from "../components/Sidebar";
+import Banner from "../components/Banner";
 
 
 function Login() {
@@ -19,6 +20,7 @@ function Login() {
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
   const [showToast, setShowToast] = useState(false)
+  const [showBanner, setShowBanner] = useState(false)
   const [toastInfo, setToastInfo] = useState({})
   const [userData, setUserData] = useContext(userContext)
   const token = Cookies.get('carToken')
@@ -34,12 +36,13 @@ function Login() {
       setUserData(response.data)
       setLoading(false)
       setToastInfo({title: "Success!", msg: `Welcome ${email}`, bg: "#26a62e"})
-      setShowToast(true)
+      // setShowToast(true)
+      setShowBanner(true)
       // localStorage.setItem("carToken", response.data.token)
       let inHour = 1/12
       Cookies.set("carToken", response.data.token, {expires: inHour})
       // Cookies.set("carPortalUser", response.data)
-      Router.replace('/')
+      // Router.replace('/')
       setEmail('')
       setPassword('')
     })
@@ -60,7 +63,9 @@ function Login() {
     });
   }
 
-
+  const setShow = () => {
+    setShowToast(!showBanner)
+  }
   
   console.log(userData);
 
@@ -137,7 +142,10 @@ function Login() {
             </form>
           </div>
         </div>
-        {showToast && <Toast info={toastInfo}/>}
+        {showBanner && <Banner setShow={setShow}/>}
+        {
+          showToast && <Toast info={toastInfo}/>
+        }
       </section>
     </>
   );

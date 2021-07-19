@@ -57,6 +57,12 @@
     font-weight: bold;
     font-size: 18px;
   }
+
+  .size {
+    font-weight: bold;
+    color: #0303aa;
+    margin-left: 20px;
+  }
   
   .cart_container .cart_item {
     position: relative;
@@ -202,7 +208,8 @@
     border-radius: 10px;
     border: none;
     cursor: pointer;
-    background-color: cyan;
+    color: white;
+    background-color: #0303aa;
     font-weight: bold;
     transition: all .1s ease-in;
   }
