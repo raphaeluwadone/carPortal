@@ -3,7 +3,11 @@
     width: 100vw;
     min-height: 100vh;
     box-sizing: border-box;
-    background-color: pink;
+    background-image: url('../assets/events.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
   }
   
   .title {
@@ -21,7 +25,6 @@
     margin: 20px auto;
     margin-bottom: 50px;
     position: relative; */
-    background-color: fuchsia;
     color: yellow;
   }
   
@@ -34,7 +37,6 @@
   
   
   .event {
-    background-color: blue;
     width: 100%;
     height: auto;
     display: -webkit-box;
@@ -48,7 +50,9 @@
     -webkit-box-flex: 1;
         -ms-flex: 1;
             flex: 1;
-    background-color: green;
+    background-color: #d3d3d3;
+    border-radius: 30px;
+    margin: 0 auto;
     padding: 10px 15px;
     display: flex;
     justify-content: space-evenly;
@@ -56,12 +60,30 @@
     align-items: center;
     flex-wrap: wrap;
   }
+
+
+  @media screen and (max-width: 1000px) {
+    .event .main_content {
+      width: 100%;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+
+    .tabs {
+      padding: 0;
+    }
+    .event .main_content {
+      width: 100%;
+    }
+  }
   
   
   .event .main_content .lead {
-    background-color: goldenrod;
+    background-color: #e5e5e5;
+    border-radius: 20px;
+    margin-bottom: 30px;
     width: 100%;
-    /* width: 70vw; */
     padding: 0 20px;
     flex: 1;
   }
@@ -79,10 +101,10 @@
 
   
   .event .main_content .carousel {
-    background-color: purple;
+    background-color: #d3d3d3;
     margin: 0 auto;
-    width: 1100px;
-    min-height: 550px;
+    width: 900px;
+    height: 750px;
   }
 
   
@@ -91,7 +113,6 @@
   }
   
   .event .main_content .desc {
-    background-color: orange;
     margin-top: 50px;
   }
   
@@ -101,6 +122,19 @@
     height: 400px;
     margin: 50px 0;
   }
+
+  @media screen and (max-width: 1000px) {
+    .event .main_content .carousel {
+      width: 768px;
+    }
+  }
+
+  @media screen and (max-width: 1000px) {
+    .event .main_content .carousel {
+      width: 600px;
+      height: 400px;
+    }
+  }
   
   @media screen and (max-width: 768px) {
     .event {
@@ -109,6 +143,12 @@
           -ms-flex-direction: column;
               flex-direction: column;
     }
+
+    .event .main_content .carousel {
+      width: 100%;
+      height: 400px;
+    }
+
     .event .btn_container {
       background-color: yellowgreen;
       width: 100%;
@@ -157,7 +197,6 @@
       display: none !important;
     }
     .event .main_content .lead {
-      background-color: red;
       align-items: center;
       flex-direction: column;
     }

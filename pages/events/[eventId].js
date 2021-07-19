@@ -17,7 +17,8 @@ const settings = {
     autoplaySpeed: 6000,
     dotsClass: "button__bar",
     className: 'slide',
-    arrows: true
+    arrows: true,
+    fade: true
 }
     useEffect(() => {
         console.log(data)
@@ -25,15 +26,15 @@ const settings = {
     return (
         <div className={styles.tabs}>
                     <div className={styles.single_title}>
-                        <h2 className={styles.title}>vee</h2>
+                        <h2 className={styles.title}>{data.message.Title}</h2>
                     </div>
                     <main className={styles.event}>
                 <section className={styles.main_content}>
                     <div className={styles.lead}>
                         <div className={styles.time}>
-                            <h5><span>Date: </span></h5>
-                            <h5><span>Venue: </span></h5>
-                            <p><span>Time: </span></p>
+                            <h5>Date:<span> {data.message.Date}</span></h5>
+                            <h5><span>Venue: {data.message.Venue}</span></h5>
+                            <p><span>Time: {data.message.Time}</span></p>
                         </div>
                     </div>
                     <div className={styles.carousel}>
@@ -41,7 +42,7 @@ const settings = {
                             {
                                 photos.map((photo, i) => {
                                     return(
-                                        <img src={photo} alt={photo} key={i} width='70px'/>
+                                        <img src={photo} alt={photo} key={i} />
                                     )
                                 })
                             }

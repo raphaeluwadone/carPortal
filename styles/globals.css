@@ -26,6 +26,12 @@ body {
   bottom: 50px;
 }
 
+@media screen and (max-width: 768px) {
+  .button__bar {
+    bottom: 0;
+  }
+}
+
 .button__bar li {
   list-style: none;
   cursor: pointer;

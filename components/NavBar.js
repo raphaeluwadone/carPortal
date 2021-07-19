@@ -12,8 +12,7 @@ function NavBar() {
         <>
             <nav className={styles.nav}>
                 <Link href="/">
-                <div className={styles.nav_brand}>
-                    {/* <img src="../assets/5.png" alt="TheCarPortal"/> */}
+                <div className={styles.nav_brand}>  
                 </div>
               </Link>
                 <ul className={styles.nav_links}>

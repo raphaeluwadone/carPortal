@@ -6,7 +6,7 @@ import { GrClose } from 'react-icons/gr'
 function Sidebar({isOpen, toggle}) {
     return (
         <>
-        <div className={`${styles.menu_container} ${isOpen ? styles.side__bar : ''}`}>
+        <div className={`${styles.menu_container} ${isOpen ? styles.side__bar : ''}`} onClick={toggle}>
             <div className={styles.cancel__icon}>
                 <GrClose onClick={toggle} />
             </div>

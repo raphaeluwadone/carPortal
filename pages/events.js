@@ -17,19 +17,6 @@ function Events({eventsInfo}) {
     const [error, setError] = useState('')
     // console.log(eventsInfo);
 
-    // useEffect(() => {
-    //     axios.get('https://thecarportal.herokuapp.com/events/')
-    //     .then(res=>{
-    //         setEventsInfo(res.data.message)
-    //         console.log(res.data.message);
-    //         setLoading(false)
-    //     }).catch(err=> {
-    //         console.log(err.response);
-    //         setLoading(false)
-    //         setError(err.response)
-    //     })
-
-    // }, [])
     useEffect(() => {
         console.log(eventsInfo);
         let upcoming = eventsInfo.filter(ev => ev.Status === "U")
