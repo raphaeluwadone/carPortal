@@ -338,6 +338,10 @@
       align-items: center;
       flex-direction: column;
     }
+
+    .tabs {
+      padding: 10px 15px;
+    }
   }
   .loading {
     width: 100%;

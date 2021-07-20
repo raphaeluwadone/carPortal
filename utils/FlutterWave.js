@@ -9,7 +9,6 @@ export default function App({sumTotal}) {
     const [userData, setUserData] = useContext(userContext)
 
     const user_data =  JSON.parse(localStorage.getItem('carPortalUser'))
-    // const user = Cookies.get('carPortalUser')
     console.log(user_data.email);
    const config = {
     public_key: 'FLWPUBK-87d1183b60860c570373c9f8157cf3cf-X',
@@ -34,6 +33,10 @@ export default function App({sumTotal}) {
     ...config,
     text: 'Checkout',
     callback: (response) => {
+      const data = response.json()
+      if (data.status === 'success') {
+        
+      }
        console.log(response);
       closePaymentModal() // this will close the modal programmatically
     },

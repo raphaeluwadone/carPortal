@@ -19,6 +19,23 @@
     color: white;
 }
 
+@media screen and (max-width: 600px) {
+    .banner__container {
+        width: 90vw;
+        height: auto;
+        padding: 10px 20px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .link_container {
+        flex-direction: column;
+        height: 100px;
+        width: 100% !important;
+        background-color: red;
+    }
+}
+
 
 .banner__container p{
     margin-top: 5px;

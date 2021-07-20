@@ -64,7 +64,7 @@ function Login() {
   }
 
   const setShow = () => {
-    setShowToast(!showBanner)
+    setShowBanner(!showBanner)
   }
   
   console.log(userData);
