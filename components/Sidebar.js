@@ -14,6 +14,7 @@ function Sidebar({isOpen, toggle}) {
                 <li><Link href="/"><a>Home</a></Link></li>
                 <li><Link href="/about"><a>About</a></Link></li>
                 <li><Link href="/affiliate"><a>Affiliate</a></Link></li>
+                <li><Link href='/events'><a>Events</a></Link></li>
                 <li><Link href="/stores"><a>Store</a></Link></li>
                 <li className={styles.login}><Link href="/login"><a>Login</a></Link></li>
             </ul>     

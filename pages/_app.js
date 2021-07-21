@@ -8,6 +8,7 @@ import Router, {useRouter} from 'next/router'
 import NavBar from '../components/NavBar'
 import Sidebar from '../components/Sidebar'
 import { HiOutlineMenuAlt3 } from 'react-icons/hi'
+import Footer from '../components/Footer'
 // import Error from 'next/error'
 
 function MyApp({ Component, pageProps }) {
@@ -30,7 +31,9 @@ function MyApp({ Component, pageProps }) {
         {page && <NavBar className='nav__bar'/>}
         {page && <HiOutlineMenuAlt3 className="nav__menu" onClick={toggleOpen}/>}
         {page && <Sidebar isOpen={isOpen} toggle={toggleOpen}/>}
+        {page && <div className="nav__brand"></div>}
         <Component {...pageProps} />
+        {page && <Footer />}
       </CartProvider>
     </UserProvider>
   )

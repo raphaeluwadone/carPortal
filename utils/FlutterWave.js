@@ -15,7 +15,7 @@ export default function App({sumTotal}) {
     tx_ref: Date.now(),
     amount: sumTotal,
     currency: 'NGN',
-    redirect_url: 'localhost:3000/success',
+    redirect_url:  'http://localhost:3000/events',
     payment_options: 'card',
     customer: {
       email: user_data.email,

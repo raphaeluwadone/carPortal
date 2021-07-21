@@ -64,14 +64,14 @@
 
   @media screen and (max-width: 1000px) {
     .event .main_content {
-      width: 100%;
+      width: 95%;
     }
   }
 
   @media screen and (max-width: 768px) {
 
     .tabs {
-      padding: 0;
+      padding: 20px;
     }
     .event .main_content {
       width: 100%;

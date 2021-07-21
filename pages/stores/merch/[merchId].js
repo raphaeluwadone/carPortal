@@ -13,6 +13,7 @@ import { RiTruckLine } from 'react-icons/ri'
 import { CgTimer } from 'react-icons/cg'
 import fetch from 'isomorphic-unfetch'
 import Head from 'next/head'
+import Toast from '../../../components/Toast'
 
 
 function SingleMerch({item}) {
@@ -24,23 +25,18 @@ function SingleMerch({item}) {
     const [showCart, setShowCart] = useState(false)
     const [size, setSize] = useState(item.merch_size)
     const [user, setUser] = useState()
-
-
-    // useEffect(() => {
-    //     const cartState = setInterval(() => {
-    //        const currentCart = JSON.parse(localStorage.getItem('carPortalCart'))
-    //        let cartContained = currentCart.length > 1 ? true : false
-    //        setInCart(cartContained)
-    //         return () => {
-    //             clearInterval(cartState)
-    //         }
-    //     }, 5000);
-    // }, [])
+    const [toastInfo, setToastInfo] = useState({})
+    const [showToast, setShowToast] = useState(false)
+    const [deliveryInfo, setDeliveryInfo] = useState()
 
     
     const addToCart = () => {
-        // let currentCart = JSON.parse(localStorage.getItem('carPortalCart')) ? JSON.parse(localStorage.getItem('carPortalCart')) : []
-        const newCart = [...cart, 
+        if(!deliveryInfo){
+            setShowToast(true)
+            setToastInfo({title: "Error!", msg: "Please ensure to fill out delivery information", bg: "#df4759"})
+            return
+        }
+         const newCart = [...cart, 
             {
              img: item.images[0],
              stock: item.stock,
@@ -48,11 +44,13 @@ function SingleMerch({item}) {
              name: item.name,
              price: item.new_price,
              qty: 1,
-             size
+             size,
+             deliveryInfo
             }
         ]
         // localStorage.setItem('carPortalCart', JSON.stringify(newCart))
         setCart(newCart)
+        setDeliveryInfo('')
     }
 
     const hideShow = () => {
@@ -84,12 +82,15 @@ function SingleMerch({item}) {
     //     console.log(data);
     // }, [])
 
-    // useEffect(() => {
-    //     console.log(cart);
-    // }, [cart])
-    if (!item) {
-        return <p>Loading...</p>
-    }
+    useEffect(() => {
+     const timer = setInterval(() => {
+            setShowToast(false)
+        }, 3000);
+        return () =>{
+            clearInterval(timer)
+        }
+    }, [showToast])
+
 
     return (
         <>
@@ -99,6 +100,7 @@ function SingleMerch({item}) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 <main className={styles.merch_container}>
+        {showToast && <Toast info={toastInfo}/> }
        {showCart && <Cart hideShow={hideShow}/>}
         <div className={styles.cart_container}>
         {cart.length > 0 && <div className="cart_content"></div>}
@@ -151,27 +153,20 @@ function SingleMerch({item}) {
         <div className={styles.billing_info}>
             <h4 className={styles.headline}>Delivery Info</h4>
             <p className={styles.billing_text}>
-                Coming Soon!!!
-                {/* Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Unde vel aspernatur odit quis corrupti perferendis. 
-                Sequi expedita magni atque error? */}
+                <input type="text" value={deliveryInfo} onChange={(e) => setDeliveryInfo(e.target.value)} placeholder="Please input your desired delivery address"/>
             </p>
             <div className={styles.delivery_locale}>
                 <h2>Available Location</h2>
                 <ul>
-                    <li className={styles.active}>Lagos</li>
-                    {/* <li className={item.location === 'Ife' ? styles.active : styles.inactive}>Ife</li>
-                    <li className={item.location === 'Ibadan' ? styles.active : styles.inactive}>Ibadan</li> */}
+                    <li className={styles.active}>Ile-Ife</li>
                 </ul>
             </div>
             <div className={styles.time_policy}>
                 {/* <img src="" alt="" /> */}
                 <RiTruckLine style={{width: '80px', height: '80px'}}/>
-                {/* <p><span>Time Duration: </span>Lorem ipsum dolor sit amet, consectetur adipisicing.</p> */}
             </div>
             <div className={styles.return_policy}>
                 <CgTimer style={{width: '80px', height: '80px'}}/>
-                {/* <p><span>Return Policy: </span>Lorem ipsum dolor sit amet, consectetur adipisicing.</p> */}
             </div>
         </div>
     </main>
