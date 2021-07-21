@@ -41,8 +41,6 @@ function Login() {
       // localStorage.setItem("carToken", response.data.token)
       let inHour = 1/12
       Cookies.set("carToken", response.data.token, {expires: inHour})
-      // Cookies.set("carPortalUser", response.data)
-      // Router.replace('/')
       setEmail('')
       setPassword('')
     })
