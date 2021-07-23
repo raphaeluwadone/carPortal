@@ -9,13 +9,13 @@ export default function App({sumTotal}) {
     const [userData, setUserData] = useContext(userContext)
 
     const user_data =  JSON.parse(localStorage.getItem('carPortalUser'))
-    console.log(user_data.email);
+    // console.log(user_data.email);
    const config = {
-    public_key: 'FLWPUBK-87d1183b60860c570373c9f8157cf3cf-X',
+    public_key: 'FLWPUBK_TEST-5dc819ed0109754bbee3687cd9210f01-X',
     tx_ref: Date.now(),
     amount: sumTotal,
     currency: 'NGN',
-    redirect_url:  'http://localhost:3000/events',
+    redirect_url:  'http://localhost:3000/success',
     payment_options: 'card',
     customer: {
       email: user_data.email,
@@ -25,7 +25,7 @@ export default function App({sumTotal}) {
     customizations: {
       title: 'CarPortal Checkout',
       description: 'Payment for items in cart',
-      logo: 'https://res.cloudinary.com/rafael-uwadone/image/upload/v1626600376/car-portal/5_kflre8.png',
+      logo: 'https://res.cloudinary.com/rafael-uwadone/image/upload/v1626600376/car-portal/5_kflre8.png'
     },
   };
 

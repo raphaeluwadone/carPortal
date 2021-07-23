@@ -12,19 +12,20 @@ function StoreItem({item}) {
     const [cart, setCart] = useContext(cartContext);
     const [size, setSize] = useState(item.merch_size)
 
-    const addToCart = (img, name, stock, price) => {
+    const addToCart = (img, name, stock, price, id, qty) => {
         const newCart = [...cart, 
             {
              img,
              stock,
              id: uuidv4(),
              name,
+             mainId: id,
              price,
              qty: 1,
-             size
+             size,
+             total: price
             }
         ]
-        // localStorage.setItem('carPortalCart', JSON.stringify(newCart))
         setCart(newCart)
         console.log(cart);
         setShowCartToast(true)
@@ -64,7 +65,7 @@ function StoreItem({item}) {
                       <div className={styles.link_btn}>
                         <Link href={`/stores/merch/${item.id}`} as={`/stores/merch/${item.id}`}>View More</Link>
                       </div>
-                      <button className={styles.add_btn} onClick={() => addToCart(item.images[0], item.name, item.stock,  item.new_price)}>
+                      <button className={styles.add_btn} onClick={() => addToCart(item.images[0], item.name, item.stock,  item.new_price, item.id, item.qty)}>
                         Add to Cart
                       </button>
                     </div>

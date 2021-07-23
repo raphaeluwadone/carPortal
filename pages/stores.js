@@ -32,28 +32,26 @@ function Stores(props) {
   const hideShow = () => {
     setShowCart(false)
   }
-  console.log(props);
   useEffect(() => {
     // setSalute(false)
   }, [salute]);
 
-  const addToCart = (img, name, stock, price) => {
-    // let currentCart = JSON.parse(localStorage.getItem('carPortalCart')) ? JSON.parse(localStorage.getItem('carPortalCart')) : []
-    const newCart = [...cart, 
-        {
-         img,
-         stock,
-         id: uuidv4(),
-         name,
-         price,
-         qty: 1
-        }
-    ]
-    // localStorage.setItem('carPortalCart', JSON.stringify(newCart))
-    setCart(newCart)
-    console.log(cart);
-    setSalute(true)
-}
+//   const addToCart = (img, name, stock, price) => {
+//     const newCart = [...cart, 
+//         {
+//          img,
+//          stock,
+//          id: uuidv4(),
+//          name,
+//          price,
+//          qty: 1,
+//          total: 1 * price
+//         }
+//     ]
+//     setCart(newCart)
+//     console.log(cart);
+//     setSalute(true)
+// }
 
   useEffect(() => {
     if (props.data?.status_code !== 200) {

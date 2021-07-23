@@ -27,28 +27,24 @@ function SingleMerch({item}) {
     const [user, setUser] = useState()
     const [toastInfo, setToastInfo] = useState({})
     const [showToast, setShowToast] = useState(false)
-    const [deliveryInfo, setDeliveryInfo] = useState()
 
     
     const addToCart = () => {
-        if(!deliveryInfo){
-            setShowToast(true)
-            setToastInfo({title: "Error!", msg: "Please ensure to fill out delivery information", bg: "#df4759"})
-            return
-        }
          const newCart = [...cart, 
             {
              img: item.images[0],
              stock: item.stock,
              id: uuidv4(),
+             mainId: item.id,
              name: item.name,
              price: item.new_price,
              qty: 1,
              size,
-             deliveryInfo
+             total: item.new_price
             }
         ]
-        // localStorage.setItem('carPortalCart', JSON.stringify(newCart))
+        setShowToast(true)
+        setToastInfo({title: "Success!", msg: "Item has been added to your cart.", bg: "#df4759"})
         setCart(newCart)
         setDeliveryInfo('')
     }
@@ -153,7 +149,7 @@ function SingleMerch({item}) {
         <div className={styles.billing_info}>
             <h4 className={styles.headline}>Delivery Info</h4>
             <p className={styles.billing_text}>
-                <input type="text" value={deliveryInfo} onChange={(e) => setDeliveryInfo(e.target.value)} placeholder="Please input your desired delivery address"/>
+                
             </p>
             <div className={styles.delivery_locale}>
                 <h2>Available Location</h2>

@@ -38,7 +38,7 @@ function Login() {
       setToastInfo({title: "Success!", msg: `Welcome ${email}`, bg: "#26a62e"})
       // setShowToast(true)
       setShowBanner(true)
-      // localStorage.setItem("carToken", response.data.token)
+      localStorage.setItem("carToken", response.data.token)
       let inHour = 1/12
       Cookies.set("carToken", response.data.token, {expires: inHour})
       setEmail('')

@@ -5,6 +5,7 @@ import Toast from "../components/Toast"
 import styles from '../styles/Login.module.css'
 import Link from 'next/link'
 import Image from 'next/image'
+import Router from 'next/router'
 import Head from 'next/head'
 
 
@@ -14,6 +15,7 @@ function Signup() {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [deliveryInfo, setDeliveryInfo] = useState('')
     const [phone, setPhone] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
     const [loading, setLoading] = useState(false)
@@ -37,7 +39,8 @@ function Signup() {
         email,
         password,
         password2: confirmPassword,
-        phone
+        phone,
+        delivery: deliveryInfo
       }
   
       axios.post('https://thecarportal.herokuapp.com/user/register/', data)
@@ -50,7 +53,9 @@ function Signup() {
         setEmail('')
         setName('')
         setPassword('')
+        setDeliveryInfo('')
         setPhone('')
+        Router.push('/login')
         registered()
       })
       .catch(error => {
@@ -61,6 +66,7 @@ function Signup() {
           setToastInfo({title: "Error!", msg: `${error.response.data.email[0]}`, bg: "#df4759"})
           setShowToast(true)
           setConfirmPassword('')
+          setDeliveryInfo('')
           setEmail('')
           setName('')
           setPhone('')
@@ -72,6 +78,7 @@ function Signup() {
           setEmail('')
           setPhone('')
           setName('')
+          setDeliveryInfo('')
           setPassword('')  
         }
       });
@@ -139,7 +146,7 @@ function Signup() {
                   <input
                     type="email"
                     name="email"
-                    placeholder="email"
+                    placeholder="Email"
                     className={styles.input}
                     autoComplete="off"
                     value={email}
@@ -174,6 +181,21 @@ function Signup() {
                     autoComplete="off"
                     value={phone}
                     onChange={(e)=> setPhone(e.target.value)}
+                  />
+                </div>
+                <div className={styles.inputBx}>
+                  {/* <h5>Phone</h5> */}
+                  <div className="i">
+                    <i className="fas fa-user"></i>
+                  </div>
+                  <input
+                    type="text"
+                    placeholder="Delivery Location"
+                    name="deliveryInfo"
+                    className={styles.input}
+                    autoComplete="off"
+                    value={deliveryInfo}
+                    onChange={(e)=> setDeliveryInfo(e.target.value)}
                   />
                 </div>
                 <div className={styles.inputBx}>

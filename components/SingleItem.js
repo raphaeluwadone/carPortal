@@ -6,7 +6,7 @@ import { getNumberWithCommas } from '../utils/functions'
 
 function SingleItem({item, deleteFromCart, indPrices, pricesUpdate}) {
 
-    const [qty, setQty] = useState(1)
+    const [qty, setQty] = useState(item.qty)
     const [sumTotal, setSumTotal] = useState(item.price)
     const [totalPrice, setTotalPrice] = useState('')
     const [cart, setCart] = useContext(cartContext)
@@ -26,7 +26,7 @@ function SingleItem({item, deleteFromCart, indPrices, pricesUpdate}) {
 
 
     const subTotal = () => {
-      const newTotal = qty * item.price
+      const newTotal = item.qty * item.price
       setSumTotal(newTotal)
     }
 
@@ -38,14 +38,13 @@ function SingleItem({item, deleteFromCart, indPrices, pricesUpdate}) {
         setQty(qty - 1)
         let newCart = cart.map( (product ,i) => {
           if (product.id == item.id) {
-            console.log(item.id, qty);
-              return {...product, qty: qty - 1}
+              return {...product, qty: product.qty - 1, total: (product.qty - 1) * product.price}
           }else {
             return product
           }
         })
         console.log(newCart);
-        setCart(newCart)
+        setCart([...newCart])
     }
     }
 
@@ -54,27 +53,42 @@ function SingleItem({item, deleteFromCart, indPrices, pricesUpdate}) {
         return
       }if (qty < stock) {
         setQty(qty + 1)
-        let newCart = cart.map( (product ,i) => {
-          if (product.id == item.id) {
-            console.log(item.id, qty);
-              return {...product, qty: qty + 1}
-          }else {
-            return product
+        // console.log(newCart);
+        // setCart([...newCart])
+        }
+        let newCart = cart.map(prod => {
+          if (prod.id == item.id) {
+            return {
+              ...prod, qty: prod.qty + 1, total: (prod.qty +1) * prod.price
+            }
+          }
+          else {
+            return prod
           }
         })
         console.log(newCart);
-        setCart(newCart)
-        }
+        setCart([...newCart])
     }
     useEffect(() => {
-     const sumTotal = cart.reduce((total, prod) => {
-        return total + (prod.qty * prod.price)
-     },0)
+    //  const newCart = cart.map(prod => {
+
+    //      if (prod.id === item.id) {
+    //        return (
+    //           {
+    //             ...prod, total: prod.qty * prod.price
+    //           }
+    //        )
+    //      }
+    //      return prod
+    //  })
+    //  setCart([...newCart])
     }, [cart])
   
 
 
     useEffect(() => {
+      // const newCart = cart.map(item => item)
+      // setCart([...newCart])
       subTotal()
     }, [qty])
 
@@ -101,7 +115,7 @@ function SingleItem({item, deleteFromCart, indPrices, pricesUpdate}) {
           >
             -
           </button>
-          <div>{qty}</div>
+          <div>{item.qty}</div>
           <button
             onClick={() => inc(item.stock)}
             style={{ background: `${qty >= item.stock ? "#d3d3d3" : ""}` }}
@@ -109,7 +123,7 @@ function SingleItem({item, deleteFromCart, indPrices, pricesUpdate}) {
             +
           </button>
         </div>
-        <p className={styles.subtotal}>{'\u20A6'}{getNumberWithCommas(sumTotal)}</p>
+        <p className={styles.subtotal}>{'\u20A6'}{getNumberWithCommas(item.total)}</p>
       </div>
     </div>
   );
