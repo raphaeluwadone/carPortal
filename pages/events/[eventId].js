@@ -57,12 +57,6 @@ function SingleEvent({ data }) {
           </p>
               <h3>Videos</h3>
           <div className={styles.video}>
-              {/* <div className={styles.arrival_video}>
-                <div className={styles.video__link}>
-
-                </div>
-                <h5>Arrival</h5>
-              </div> */}
               <div className={styles.main__event} onClick={videoRedirect}>
                 <div className={styles.video__link}>
                     <img src="https://yt3.ggpht.com/8UFYMoxs_FP7OQtR2tbU-_lBgz7iAyA2wIp0UMSSlHmZBMuNnWLxSMSAlfAFMyNbiM_ri_LH=s176-c-k-c0x00ffffff-no-rj-mo" alt=""/>

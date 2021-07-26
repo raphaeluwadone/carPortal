@@ -82,8 +82,8 @@
   }
   
   .store .btn_container .active {
-    color: cyan;
-    border-left: 3px solid cyan;
+    color: #4267b2;
+    border-left: 3px solid #4267b2;
     font-weight: bold;
   }
   
@@ -283,7 +283,7 @@
               align-items: center;
     }
     .store .btn_container {
-      background-color: yellowgreen;
+      background-color: #0a0a0a;
       width: 100%;
       -webkit-box-pack: space-evenly;
           -ms-flex-pack: space-evenly;
@@ -304,11 +304,11 @@
       background-color: #fff;
     }
     .store .btn_container .btn:hover {
-      border-bottom: 2px solid cyan;
+      border-bottom: 2px solid #4267b2;
     }
   
     .store .btn_container .active {
-      border-bottom: 2px solid cyan;
+      border-bottom: 2px solid #4267b2;
       border-left: 0;
     }
 

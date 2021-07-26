@@ -11,22 +11,13 @@
   }
   
   .title {
-    /* margin: 20px auto; */
-    /* max-width: 10rem; */
-    /* text-align: center; */
     margin-bottom: 15px;
-    /* border-bottom: 3px solid white; */
-    /* padding-bottom: 30px; */
     color: white;
     position: relative;
     font-size: 28px;
   }
   
   .single-title {
-    /* width: 10rem;
-    margin: 20px auto;
-    margin-bottom: 50px;
-    position: relative; */
     color: yellow;
   }
   
@@ -84,7 +75,6 @@
   
   
   .event .main_content .lead {
-    /* background-color: #e5e5e5; */
     border-radius: 20px;
     margin-bottom: 30px;
     width: 100%;
@@ -98,12 +88,6 @@
    padding-bottom: 30px;
    margin-bottom: 20px;
    color: white;
-    /* font-style:italic ;
-    height: 120px;
-    display: flex;
-    flex-direction: column;
-    font-size: 25px;
-    justify-content: space-evenly; */
   }
   
   .lead .time h5{
@@ -118,7 +102,6 @@
     margin: 0 auto;
     width: 100%;
     height: auto;
-    /* background-color: red; */
   }
 
   
@@ -131,7 +114,6 @@
   }
   
   .event .main_content .video {
-    background-color: cyan;
     width: 100%;
     /* height: 500px; */
     max-height: auto;
@@ -151,7 +133,6 @@
   .arrival_video {
     display: flex;
     align-items: center;
-    background-color: red;
     flex-wrap: wrap;
   }
 
@@ -159,14 +140,12 @@
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    background-color: red;
     cursor: pointer;
   }
 
   .video__link {
     width: auto;
     height: 200px;
-    background-color: pink;
     margin-top: 30px;
     margin-right: 30px;
     margin-bottom: 30px;
@@ -205,7 +184,6 @@
     }
 
     .event .btn_container {
-      background-color: yellowgreen;
       width: 100%;
       -webkit-box-pack: space-evenly;
           -ms-flex-pack: space-evenly;
@@ -226,7 +204,7 @@
       background-color: #fff;
     }
     .event .btn_container .btn:hover {
-      border-bottom: 2px solid cyan;
+      /* border-bottom: 2px solid cyan; */
     }
   
     .event .btn_container .active {
@@ -236,9 +214,6 @@
   }
   
   @media screen and (max-width: 460px) {
-    .main_content .video {
-      display: none;
-    }
     .main_content .lead .outline {
       display: none !important;
     }

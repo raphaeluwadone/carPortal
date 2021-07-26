@@ -68,6 +68,7 @@
     }
 
     .text {
+        display: none;
         margin-top: 30px !important;
     }
 }

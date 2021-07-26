@@ -41,7 +41,7 @@ export default function About() {
                             <FaYoutube />
                         </div>
                         <div className={styles.text}>
-                            About
+                            Youtube
                         </div>
                     </div>
                     <div className={styles.single_link} onClick={whatsappLink}>
@@ -49,7 +49,7 @@ export default function About() {
                             <FaWhatsapp style={{fontSize: '40px'}}/>
                         </div>
                         <div className={styles.text}>
-                            About
+                            WhatsApp
                         </div>
                     </div>
                     <div className={styles.single_link} onClick={instgramHandle}> 
@@ -57,7 +57,7 @@ export default function About() {
                             <FaInstagram />
                         </div>
                         <div className={styles.text}>
-                            About
+                            Instagram
                         </div>
                     </div>
                     <div className={styles.single_link} onClick={facebookPage}>
@@ -65,7 +65,7 @@ export default function About() {
                             <FaFacebookF style={{fontSize: '40px'}}/>
                         </div>
                         <div className={styles.text}>
-                            About
+                            Facebook
                         </div>
                     </div>
                 </div>
