@@ -79,8 +79,7 @@ function Stores(props) {
             <TiShoppingCart className='cart_icon' onClick={()=>setShowCart(true)} style={{cursor: "pointer", color: 'white'}}/>
         </div>
         <div className={styles.title}>
-          <h2>Stores</h2>
-          <div className={styles.outline}></div>
+          <h2>Store</h2>
         </div>
         <main className={styles.store}>
           <section className={styles.btn_container}>

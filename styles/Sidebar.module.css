@@ -29,8 +29,8 @@
     z-index: 995;
     /* background-color: #fff; */
     color: white !important;
-    font-size: 50px;
-    top: 30px;
+    font-size: 30px;
+    top: 50px;
     right: 60px;
 }
 
@@ -81,6 +81,7 @@
     text-decoration: none;
     cursor: pointer;
     letter-spacing: 2px;
+    font-size: 1.3rem;
 }
 
 .menu_container ul li a:hover{ 
