@@ -6,9 +6,10 @@
     border-radius: 10px;
     position: absolute;
     top: 50px;
+    /* right: 0; */
     left: 50%;
     transform: translate(-50%);
-    background-color: #0303aa;
+    background-color: #4267b2;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -17,6 +18,14 @@
     padding: 20px 80px;
     transition: all .2s ease-in;
     color: white;
+}
+
+@media screen and (max-width: 768px) {
+    .banner__container {
+        /* top: 0; */
+        /* right: 0 !important;
+        transform: translate(25%); */
+    }
 }
 
 @media screen and (max-width: 600px) {
@@ -48,14 +57,14 @@
 }
 
 .link_container a{
-    color: #3e3d53;
     text-decoration: none;
     font-weight: bold;
     border-radius: 8px;
-    border: 2px solid white;
+    border: 2px solid  #1e1f22;
+    color: white;
     padding: 8px 20px;
     cursor: pointer;
-    background-color: cyan;
+    background-color:  #1e1f22 ;
     transition: all .2s ease-in;
 }
 .link_container a:hover{

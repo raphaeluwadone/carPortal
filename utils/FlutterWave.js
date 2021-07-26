@@ -6,12 +6,11 @@ import Cookies from 'js-cookie'
 
 export default function App({sumTotal}) {
 
-    const [userData, setUserData] = useContext(userContext)
 
     const user_data =  JSON.parse(localStorage.getItem('carPortalUser'))
     // console.log(user_data.email);
    const config = {
-    public_key: 'FLWPUBK_TEST-5dc819ed0109754bbee3687cd9210f01-X',
+    public_key: 'FLWPUBK-1b9076cde850ca1c1802b4c81d6f49c2-X',
     tx_ref: Date.now(),
     amount: sumTotal,
     currency: 'NGN',

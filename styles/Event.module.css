@@ -2,6 +2,12 @@
     padding: 80px;
     width: 100vw;
     min-height: 100vh;
+    background-image: url('../assets/3\ 4.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* filter: blur(8px);
+    -webkit-filter: blur(8px); */
   }
   
   .title {
@@ -38,7 +44,7 @@
   }
   
   .event {
-    background-color: blue;
+    /* background-color: blue; */
     width: 100%;
     height: auto;
     display: -webkit-box;
@@ -49,7 +55,7 @@
   
   .event .btn_container {
     width: auto;
-    background-color: #e5e5e5;
+    /* background-color: #e5e5e5; */
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -74,15 +80,16 @@
   }
   
   .event .btn_container .active {
-    color: cyan;
-    border-left: 3px solid cyan;
+    color: #616161;
     font-weight: bold;
+    background-color: #ccc;
   }
   
   .event .btn_container .btn:hover {
-    color: cyan;
+    color: black;
     font-weight: bold;
     cursor: pointer;
+    background-color: #ccc;
   }
   
   .event .btn_container .btn:active {
@@ -94,42 +101,51 @@
     -webkit-box-flex: 1;
         -ms-flex: 1;
             flex: 1;
-    background-color: #d3d3d3;
-    border-left: 1px solid white;
     padding: 10px 15px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    /* background-color: red; */
   }
   
    .single_event {
-    background-color: #e5e5e5;
+    background-color: rgba(217, 219, 219, 0.88);
     color: black;
     padding: 5px 15px;
-    min-height: 180px;
-    width: 250px;
+    height: 100px;
+    box-sizing: border-box;
+    width: 400px;
     display: flex;
-    flex-direction: column;
+    align-items: center;
     justify-content: space-around;
     border-radius: 12px;
     margin: 20px 30px;
-  
+    font-weight: bold;
+  }
+
+  .single_event p{
+    margin-top: 8px;
+    font-size: 15px;
   }
   
   .link_btn {
-    border: 2px solid #888888;
+    border: none;
     padding: 5px 10px;
-    width: 120px;
+    max-width: 120px;
+    background-color:  rgba(66, 103, 178, 0.5);
     border-radius: 4px;
     cursor: pointer;
     transition: all .2s ease-in;
     margin-bottom: 8px;
-    color: #888888;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
   .link_btn:hover {
-    background-color: #888888;
+    background-color: #009dd6;
     color: white;
     transform: scale(1.09);
   }
@@ -144,7 +160,7 @@
   
   }
   .event .main_content .lead {
-    background-color: red;
+    /* background-color: red; */
     /* width: 70vw; */
     position: relative;
     padding: 0 20px;
@@ -202,7 +218,6 @@
               flex-direction: column;
     }
     .event .btn_container {
-      background-color: yellowgreen;
       width: 100%;
       -webkit-box-pack: space-evenly;
           -ms-flex-pack: space-evenly;
@@ -218,21 +233,39 @@
       padding: 10px 30px;
       margin: 10px 0;
       width: 250px;
+      font-weight: bold;
+      background: none;
       font-size: 18px;
       text-transform: uppercase;
-      background-color: #fff;
+      /* background-color: #fff; */
     }
-    .event .btn_container .btn:hover {
-      border-bottom: 2px solid cyan;
+
+    .event .btn_container .active{
+      color: #616161 !important;
+      background-color: #ccc;
     }
-  
-    .event .btn_container .active {
-      border-bottom: 2px solid cyan;
-      border-left: 0;
+
+    .link_btn {
+      align-self: flex-end;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    .main_content .single_event {
+      width: 100% !important;
+    }
+
+    .event_list {
+    }
+
+    .event .main_content {
+      width: 100% !important;
+      padding: 0 !important;
     }
   }
   
   @media screen and (max-width: 460px) {
+
     .main_content .video {
       display: none;
     }
@@ -245,11 +278,14 @@
   }
   
   @media screen and (max-width: 600px) {
+    .tabs {
+      padding: 50px 30px;
+    }
     .video {
       display: none !important;
     }
     .event .main_content .lead {
-      background-color: red;
+      /* background-color: red; */
       align-items: center;
       flex-direction: column;
     }

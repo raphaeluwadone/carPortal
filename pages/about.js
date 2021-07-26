@@ -3,20 +3,25 @@ import Head from 'next/head'
 import styles from '../styles/About.module.css'
 import { ImYoutube2, ImFacebook2 } from 'react-icons/im'
 import { TiSocialInstagram } from 'react-icons/ti'
+import { FaWhatsapp, FaFacebookF, FaInstagram, FaYoutube } from 'react-icons/fa'
 import Link from 'next/link'
 
 export default function About() {
 
     const youtubeChannel = () => {
-        document.location.href = 'https://stackoverflow.com/';
+        document.location.href = 'https://www.youtube.com/channel/UC5Lv5niABG4jKjCAi7PRw1A';
       }
 
       const instgramHandle = () => {
-        document.location.href = 'https://stackoverflow.com/';
+        document.location.href = 'https://www.instagram.com/the.carportal/';
       }
 
       const facebookPage = () => {
-        document.location.href = 'https://stackoverflow.com/';
+        document.location.href = 'https://www.youtube.com/channel/UC5Lv5niABG4jKjCAi7PRw1A';
+      }
+
+      const whatsappLink =() => {
+        document.location.href = "https://wa.me/message/TBMCAPTHYDDTD1";
       }
 
     return (
@@ -28,31 +33,39 @@ export default function About() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
             <main className={styles.main_about}>
-                <h2>About Us</h2>
+                {/* <h2>About Us</h2> */}
                 <p>Founded in 2020, The car portal is a space that talks about cars, a space where you find anything about cars and car related stuff Started as an Instagram blog, expanding the horizon to car sales, fun YouTube videos, cool car merch</p>
                 <div className={styles.social__links}>
-                    <div className={styles.single_link} style={{background: '#fd00008e'}} onClick={youtubeChannel}>
-                        <div className={styles.icon}>
-                            <ImYoutube2 />
+                    <div className={styles.single_link} onClick={youtubeChannel}>
+                        <div className={styles.icon} style={{background: '#ff0000'}}>
+                            <FaYoutube />
                         </div>
                         <div className={styles.text}>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam, saepe.
+                            About
                         </div>
                     </div>
-                    <div className={styles.single_link} style={{background: '#a0d831a2'}}> 
-                        <div className={styles.icon}>
-                            <TiSocialInstagram />
+                    <div className={styles.single_link} onClick={whatsappLink}>
+                        <div className={styles.icon} style={{background: '#25d366'}}>
+                            <FaWhatsapp style={{fontSize: '40px'}}/>
                         </div>
                         <div className={styles.text}>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam, saepe.
+                            About
                         </div>
                     </div>
-                    <div className={styles.single_link} style={{background: '#ffff0091'}}>
-                        <div className={styles.icon}>
-                            <ImFacebook2 style={{fontSize: '40px'}}/>
+                    <div className={styles.single_link} onClick={instgramHandle}> 
+                        <div className={styles.icon} style={{background: '#dd2a7b'}}>
+                            <FaInstagram />
                         </div>
                         <div className={styles.text}>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam, saepe.
+                            About
+                        </div>
+                    </div>
+                    <div className={styles.single_link} onClick={facebookPage}>
+                        <div className={styles.icon} style={{background: '#4267b2'}}>
+                            <FaFacebookF style={{fontSize: '40px'}}/>
+                        </div>
+                        <div className={styles.text}>
+                            About
                         </div>
                     </div>
                 </div>

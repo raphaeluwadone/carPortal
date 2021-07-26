@@ -253,16 +253,13 @@
 
   .cart_container .cart_btn button:hover {
     box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+    background-color: #00007c;
   }
   
   .cart_container .cart_btn button:focus {
     outline: none;
   }
-  
-  .cart_container .cart_btn button:hover {
-    background-color: #05e6e6;
-  }
-  
+
   .cart_container .cart_btn button:active {
     -webkit-transform: scale(0.95);
             transform: scale(0.95);

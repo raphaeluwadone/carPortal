@@ -233,7 +233,7 @@ function Signup() {
                    <input type="submit" value="Sign up" />
                    :
                    <div style={{margin:'50px'}}>
-                     <RotateSpinner size={30} color={'#2fd03a'} loading={loading}/>
+                     <RotateSpinner size={30} color={'#0303aa'} loading={loading}/>
                    </div>
                   }
                 </div>

@@ -8,8 +8,8 @@ function Banner({setShow}) {
     const [userData, setUserData] = useContext(userContext)
     return (
         <div className={styles.banner__container} onClick={setShow}>
-            <h2>Welcome {userData.username} to the carPortal</h2>
-            <p>Where would you like to visit next?</p>
+            <h2>Welcome {userData.username} to the carPortal virtual space</h2>
+            <p>Where would you like to visit?</p>
             
             <div className={styles.link_container}>
                 <Link href="/events">

@@ -20,7 +20,9 @@ function MyApp({ Component, pageProps }) {
     setIsOpen(!isOpen)
   }
 
-  const page = router.pathname === '/' ? false : true
+  const current_page = router.pathname
+  let newCurrent = current_page.slice(1, (current_page.length))
+  const page = current_page === '/' ? false : true
 
   Router.events.on('routeChangeStart', nProgress.start)
   Router.events.on('routeChangeError', nProgress.done)
@@ -29,7 +31,15 @@ function MyApp({ Component, pageProps }) {
     <UserProvider>
       <CartProvider>
         {page && <NavBar className='nav__bar'/>}
-        {page && <HiOutlineMenuAlt3 className="nav__menu" onClick={toggleOpen}/>}
+        {
+          page && (
+            <div className="side_pane">
+              <div className="nav__brand"></div>
+              <HiOutlineMenuAlt3 className="nav__menu" onClick={toggleOpen}/>
+            </div>
+          )
+        }
+        {/* {page && <HiOutlineMenuAlt3 className="nav__menu" onClick={toggleOpen}/>} */}
         {page && <Sidebar isOpen={isOpen} toggle={toggleOpen}/>}
         {page && <div className="nav__brand"></div>}
         <Component {...pageProps} />

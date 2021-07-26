@@ -7,18 +7,21 @@ import { BsArrowBarLeft } from 'react-icons/bs'
 import { cartContext } from '../utils/CartContext'
 import axios from 'axios'
 import Cookies from 'js-cookie'
+import { RotateSpinner } from 'react-spinners-kit'
 
 
 function Success() {
 
     // const [cart, setCart] = useContext(cartContext)
     const router = useRouter()
-    const {transaction_id} = router.query
 
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(true)
     const [cartData, setCartData] = useState('')
 
     useEffect(() => {
+
+        const {transaction_id} = router.query
+        setLoading(true)
         const cart = JSON.parse(localStorage.getItem('cartItem'))
             const sumTotal = cart.reduce((total, prod) => {
                 return total + (prod.total)
@@ -48,25 +51,22 @@ function Success() {
                 "content-type":"application/json"
             }
         }
-
-        // fetch("https://thecarportal.herokuapp.com/cart/", {
-        //     method: "post",
-        //     body: finalData,
-        //     headers: config
-        // })
-        // .then(res => {
-        //     res.json()
-        // })
-        // .then(data => {
-        //     console.log(data);
-        // })
-
         axios.post("https://thecarportal.herokuapp.com/cart/", finalData, config)
         .then(response => {
             console.log(response)
+            if (response.status === 200) {
+                setLoading(false)
+            }
         })
     }, [])
 
+    if (loading) {
+        return (
+            <div className="spinner_container">
+                <RotateSpinner size={50} color={'#0303aa'} loading={loading}/>
+            </div>
+        )
+    }
         
         return (
             <div className={styles.success_body}>

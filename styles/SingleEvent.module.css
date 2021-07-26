@@ -3,7 +3,7 @@
     width: 100vw;
     min-height: 100vh;
     box-sizing: border-box;
-    background-image: url('../assets/events.jpg');
+    background-image: url('../assets/3\ 4.png');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -11,11 +11,13 @@
   }
   
   .title {
-    margin: 20px auto;
-    max-width: 10rem;
-    text-align: center;
-    background-color: #fff;
-    margin-bottom: 25px;
+    /* margin: 20px auto; */
+    /* max-width: 10rem; */
+    /* text-align: center; */
+    margin-bottom: 15px;
+    /* border-bottom: 3px solid white; */
+    /* padding-bottom: 30px; */
+    color: white;
     position: relative;
     font-size: 28px;
   }
@@ -50,7 +52,7 @@
     -webkit-box-flex: 1;
         -ms-flex: 1;
             flex: 1;
-    background-color: #d3d3d3;
+    /* background-color: #d3d3d3; */
     border-radius: 30px;
     margin: 0 auto;
     padding: 10px 15px;
@@ -59,6 +61,8 @@
     flex-direction: column;
     align-items: center;
     flex-wrap: wrap;
+    position: relative;
+    width: 100%;
   }
 
 
@@ -80,7 +84,7 @@
   
   
   .event .main_content .lead {
-    background-color: #e5e5e5;
+    /* background-color: #e5e5e5; */
     border-radius: 20px;
     margin-bottom: 30px;
     width: 100%;
@@ -89,51 +93,102 @@
   }
   
   
-  .event .main_content .lead .time {
-    font-style:italic ;
+ .lead .time {
+   border-bottom: 3px solid white;
+   padding-bottom: 30px;
+   margin-bottom: 20px;
+   color: white;
+    /* font-style:italic ;
     height: 120px;
     display: flex;
     flex-direction: column;
     font-size: 25px;
-    justify-content: space-evenly;
+    justify-content: space-evenly; */
   }
   
+  .lead .time h5{
+    font-size: 25px;
+  }
 
+  .lead .time p{
+    font-size: 25px;
+  }
   
   .event .main_content .carousel {
-    background-color: #d3d3d3;
     margin: 0 auto;
-    width: 900px;
-    height: 750px;
+    width: 100%;
+    height: auto;
+    /* background-color: red; */
   }
 
-  
-
-  .event .main_content .carousel img {
-  }
   
   .event .main_content .desc {
     margin-top: 50px;
+    background-color: rgba(217, 219, 219, 0.88);
+    padding: 30px;
+    border-radius: 30px;
+    font-weight: bold;
   }
   
   .event .main_content .video {
     background-color: cyan;
     width: 100%;
-    height: 400px;
-    margin: 50px 0;
+    /* height: 500px; */
+    max-height: auto;
+    padding-top: 20px;
+    border-top: 3px solid white;
+  }
+
+ .main_content h3 {
+    color: white;
+    display: block;
+    align-self: flex-start;
+    margin-top: 50px;
+    font-size: 25px;
+    padding-bottom: 20px;
+  }
+
+  .arrival_video {
+    display: flex;
+    align-items: center;
+    background-color: red;
+    flex-wrap: wrap;
+  }
+
+  .main__event {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: red;
+    cursor: pointer;
+  }
+
+  .video__link {
+    width: auto;
+    height: 200px;
+    background-color: pink;
+    margin-top: 30px;
+    margin-right: 30px;
+    margin-bottom: 30px;
+  }
+
+  .video h5{
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
   }
 
   @media screen and (max-width: 1000px) {
     .event .main_content .carousel {
-      width: 768px;
+      /* width: 100%; */
     }
   }
 
   @media screen and (max-width: 1000px) {
-    .event .main_content .carousel {
+    /* .event .main_content .carousel {
       width: 600px;
       height: 400px;
-    }
+    } */
   }
   
   @media screen and (max-width: 768px) {
@@ -145,8 +200,8 @@
     }
 
     .event .main_content .carousel {
-      width: 100%;
-      height: 400px;
+      /* width: 100%;
+      height: 400px; */
     }
 
     .event .btn_container {
@@ -192,9 +247,14 @@
     }
   }
   
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 630px) {
     .video {
-      display: none !important;
+      /* display: none !important; */
+    }
+
+    .arrival_video {
+      flex-direction: column;
+      align-items: flex-start;
     }
     .event .main_content .lead {
       align-items: center;
