@@ -2,7 +2,7 @@ import React from 'react'
 import Head from 'next/head'
 import styles from '../styles/About.module.css'
 import { ImYoutube2, ImFacebook2 } from 'react-icons/im'
-import { TiSocialInstagram } from 'react-icons/ti'
+import { BiEnvelope } from 'react-icons/bi'
 import { FaWhatsapp, FaFacebookF, FaInstagram, FaYoutube } from 'react-icons/fa'
 import Link from 'next/link'
 
@@ -14,10 +14,6 @@ export default function About() {
 
       const instgramHandle = () => {
         document.location.href = 'https://www.instagram.com/the.carportal/';
-      }
-
-      const facebookPage = () => {
-        document.location.href = 'https://www.youtube.com/channel/UC5Lv5niABG4jKjCAi7PRw1A';
       }
 
       const whatsappLink =() => {
@@ -60,14 +56,14 @@ export default function About() {
                             Instagram
                         </div>
                     </div>
-                    <div className={styles.single_link} onClick={facebookPage}>
-                        <div className={styles.icon} style={{background: '#4267b2'}}>
-                            <FaFacebookF style={{fontSize: '40px'}}/>
+                    <a href="mailto:thecarportalnet@gmail.com" className={styles.single_link} style={{background: '#f6fa1996'}}>
+                        <div className={styles.icon} style={{background: '#f6fa19'}}>
+                            <BiEnvelope style={{fontSize: '40px', color: '#000'}}/>
                         </div>
                         <div className={styles.text}>
-                            Facebook
+                            Email
                         </div>
-                    </div>
+                    </a>
                 </div>
             </main>
         </>
