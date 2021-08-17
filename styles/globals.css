@@ -26,6 +26,14 @@ body {
   bottom: 50px;
 }
 
+.car_slide {
+  height: 100%;
+}
+
+.car_slide img{
+  width: 100% !important;
+}
+
 @media screen and (max-width: 768px) {
   .button__bar {
     bottom: 0;

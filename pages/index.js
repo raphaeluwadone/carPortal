@@ -25,8 +25,8 @@ export default function Home() {
                     <Link href="/about" className={styles.btn_link}>
                         <a>About Us</a>
                     </Link>
-                    <Link href="/affiliate" className={styles.btn_link}>
-                        <a>Affiliates</a>
+                    <Link href="/carsales" className={styles.btn_link}>
+                        <a>Auto-Mart</a>
                     </Link>
                     <Link href="/events" className={styles.btn_link}>
                         <a>Events</a>
@@ -37,17 +37,6 @@ export default function Home() {
                     <Link href="/login" className={styles.btn_link}>
                         <a className={styles.login}>Login</a>
                     </Link>
-                    {/* <div className={styles.social_links}>
-                        <Link>
-                          <a className={styles.social}><i className="fab fa-facebook-f"></i></a>
-                        </Link>
-                        <Link>
-                          <a className={styles.social}><i className="fab fa-google-plus-g"></i></a>
-                        </Link>
-                        <Link>
-                          <a className={styles.social}><i className="fab fa-linkedin-in"></i></a>
-                        </Link>
-                    </div> */}
                 </div>
             </div>
         </div>

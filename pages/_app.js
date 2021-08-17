@@ -9,12 +9,19 @@ import NavBar from '../components/NavBar'
 import Sidebar from '../components/Sidebar'
 import { HiOutlineMenuAlt3 } from 'react-icons/hi'
 import Footer from '../components/Footer'
+import MartMenu from '../components/MartMenu'
 // import Error from 'next/error'
 
 function MyApp({ Component, pageProps }) {
   
   const [isOpen, setIsOpen] = useState(false)
   const router = useRouter()
+  const [showMart, setShowMart] = useState(false)
+
+  const toggleMart = () => {
+      setShowMart(!showMart)
+  }
+
 
   const toggleOpen = () => {
     setIsOpen(!isOpen)
@@ -30,7 +37,8 @@ function MyApp({ Component, pageProps }) {
   return (
     <UserProvider>
       <CartProvider>
-        {page && <NavBar className='nav__bar'/>}
+      <MartMenu isOpen={showMart} toggle={toggleMart}/>
+        {page && <NavBar className='nav__bar' toggle={toggleMart}/>}
         {
           page && (
             <div className="side_pane">
@@ -40,7 +48,7 @@ function MyApp({ Component, pageProps }) {
           )
         }
         {/* {page && <HiOutlineMenuAlt3 className="nav__menu" onClick={toggleOpen}/>} */}
-        {page && <Sidebar isOpen={isOpen} toggle={toggleOpen}/>}
+        {page && <Sidebar isOpen={isOpen} toggle={toggleOpen} showMart={showMart} toggleMart={toggleMart}/>}
         {page && <div className="nav__brand"></div>}
         <Component {...pageProps} />
         {page && <Footer />}

@@ -9,6 +9,8 @@
     box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
     align-items: center;
     transition: all .2s ease-out;
+    position: relative;
+    z-index: 120;
 }
 
 @media screen and (max-width: 800px) {
@@ -45,6 +47,7 @@
     font-size: 20px;
     color: inherit;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .auth_btn {
