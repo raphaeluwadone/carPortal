@@ -1,12 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import Head from "next/head";
 import styles from "../styles/Carsales.module.css";
 import axios from "axios";
 import { getNumberWithCommas } from "../utils/functions";
 import Link from "next/link";
+import Inspection from "../components/Inspection";
+import { GiToggles } from "react-icons/gi";
 
 function Carsales({ martInfo }) {
   console.log(martInfo);
+  const [id, setId] = useState('')
+  const [showIns, setShowIns] = useState(false)
+
+  
+  const showDrop = (id) => {
+    setShowIns(true)
+    setId(id)
+  }
 
   return (
     <div>
@@ -16,6 +26,7 @@ function Carsales({ martInfo }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={styles.auto_mart}>
+        {showIns && <Inspection toggle={setShowIns} id={id}/>}
         <aside className={styles.mart_side}>
           <div className={styles.mart_menu}>
             <ul>
@@ -29,25 +40,27 @@ function Carsales({ martInfo }) {
         </aside>
         <section className={styles.mart_body}>
           {martInfo.map((item, i) => (
-            <Link href={`/carsales/${item.id}`} key={i}>
-              <a className={styles.mart_item}>
-                <div className={styles.item_info}>
-                  <div className={styles.image}>
-                    <img src={item.images[0]} alt="" />
-                  </div>
-                  <h4>{item.name}</h4>
-                  <h2>
-                    {"\u20A6"}
-                    {getNumberWithCommas(item.price)}
-                  </h2>
-                </div>
+            
+              <div className={styles.mart_item} key={i}>
+                <Link href={`/carsales/${item.id}`}>
+                <a className={styles.item_info}>
+                    <div className={styles.image}>
+                      <img src={item.images[0]} alt="" />
+                    </div>
+                    <h4>{item.name}</h4>
+                    <h2>
+                      {"\u20A6"}
+                      {getNumberWithCommas(item.price)}
+                    </h2>
+                  </a>
+                </Link>
                 <div className={styles.item_locale}>
                   <p>{item.usage}</p>
                   <h5>{item.location}</h5>
-                  <button>Book an Appointment</button>
+                  <button onClick={(e) => showDrop(item.id)}>Book an Appointment</button>
                 </div>
-              </a>
-            </Link>
+              </div>
+         
           ))}
         </section>
       </div>

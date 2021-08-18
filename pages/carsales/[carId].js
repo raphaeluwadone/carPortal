@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "../../styles/SingleCar.module.css";
 import DriveTrain from "../../assets/Icons/Drivetrain.png";
 import Fuel from "../../assets/Icons/Fuel.png"
@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { getNumberWithCommas } from "../../utils/functions";
+import Inspection from "../../components/Inspection";
 
 
 function SingleCar({ item }) {
@@ -21,13 +22,24 @@ function SingleCar({ item }) {
     autoplaySpeed: 4000,
     dotsClass: "button__bar",
     className: "car_slide",
-    arrows: false,
+    arrows: true,
     fade: false,
   };
 
+  const [showIns, setShowIns] = useState(false)
+
+  const displayDropdown = () => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth"
+    })
+    setShowIns(true)
+  }
 
   return (
     <main className={styles.item_body}>
+      {showIns && <Inspection id={item.id} toggle={setShowIns}/>}
       <div className={styles.carousel}>
         <Slider {...settings}>
             {item.images.map((photo, i) => {
@@ -51,7 +63,7 @@ function SingleCar({ item }) {
         </div>
         <div className={styles.purchase}>
             <h4>{"\u20A6"}{getNumberWithCommas(item.price)}</h4>
-          <button>Book an inspection</button>
+          <button onClick={displayDropdown}>Book an inspection</button>
         </div>
       </div>
       <div className={styles.car_video}>

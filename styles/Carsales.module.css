@@ -98,6 +98,8 @@
   .mart_body .mart_item .item_info {
     width: 400px;
     margin-left: 20px;
+    color: white;
+    text-decoration: none;
   }
     
   .mart_body .mart_item .item_info .image {
@@ -151,6 +153,10 @@
   .mart_body .mart_item .item_locale button:hover {
     -webkit-transform: scale(1.1);
             transform: scale(1.1);
+  }
+
+  .mart_body .mart_item .item_locale button:active {
+    outline: none;
   }
   
   .mart_body .mart_item .item_locale button:focus {
@@ -211,6 +217,21 @@
     }
     .mart_body {
       margin: 50px 0;
+    }
+  }
+
+  @media screen and (max-width: 424px) {
+    .mart_body .mart_item .item_locale {
+      flex-direction: column;
+      align-items: flex-start;
+      margin-left: 20px;
+      justify-content: space-evenly;
+      padding: 0;
+      height: 140px;
+    }
+
+    .mart_body {
+      padding: 0;
     }
   }
   

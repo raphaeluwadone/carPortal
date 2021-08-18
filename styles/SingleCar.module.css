@@ -114,7 +114,7 @@
   
   .feature .title p {
     margin-left: 70px;
-    font-weight: bolder;
+    /* font-weight: bolder; */
   }
   
   @media screen and (max-width: 860px) {
@@ -165,7 +165,7 @@
       -webkit-box-align: start;
           -ms-flex-align: start;
               align-items: flex-start;
-      margin-bottom: 80px;
+      margin-bottom: 30px;
     }
     .feature .title {
       -webkit-box-align: center;
