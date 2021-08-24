@@ -297,3 +297,66 @@ p.active_size {
 .slide {
   width: 100%;
 }
+
+/* For singleCar Sale */
+
+.btn__body--right {
+  background-color: rgba(255, 255, 255, 0.658);
+  border-radius: 6px;
+  width: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  position: absolute;
+  right: 30px;
+  cursor: pointer;
+  top: 50%;
+  color: #000;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.btn__body--left {
+  background-color: rgba(255, 255, 255, 0.658);
+  border-radius: 6px;
+  width: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  position: absolute;
+  z-index: 100;
+  left: 30px;
+  cursor: pointer;
+  top: 50%;
+  color: #000;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+
+@media screen and (max-width: 500px) {
+  .btn__body--left, .btn__body--right { 
+    width: 60px;
+    height: 40px;
+
+  }
+}
+
+.admin__body {
+  background-color: #0a0a0a;
+  width: 100vw;
+  height: 90vh;
+  padding: 50px;
+}
+
+.admin__body h2{
+  color: white;
+  margin-right: 10px;
+}
+
+.admin__content {
+  display: flex;
+  align-items: center;
+}

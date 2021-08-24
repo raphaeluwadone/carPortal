@@ -11,11 +11,25 @@ function Carsales({ martInfo }) {
   console.log(martInfo);
   const [id, setId] = useState('')
   const [showIns, setShowIns] = useState(false)
+  const [carList, setCarList] = useState(martInfo)
 
   
   const showDrop = (id) => {
     setShowIns(true)
     setId(id)
+  }
+
+  const filterList = (vehicle) => {
+    if (vehicle === 'all') {
+      setCarList(martInfo)
+      return
+    }
+    let newList = martInfo.filter((car) => {
+      if (car.style.toLowerCase() === vehicle) {
+          return car
+      }
+    })
+    setCarList(newList)
   }
 
   return (
@@ -31,23 +45,25 @@ function Carsales({ martInfo }) {
           <div className={styles.mart_menu}>
             <ul>
               <li className={styles.menu_head}>CLASS</li>
-              <li>Sedan</li>
-              <li>Suv</li>
-              <li>Truck</li>
-              <li>Sedan</li>
+              <li onClick={()=>filterList('sedan')}>Sedan</li>
+              <li onClick={()=>filterList('suv')}>Suv</li>
+              <li onClick={()=>filterList('truck')}>Truck</li>
+              <li onClick={()=>filterList('all')}>All Cars</li>
             </ul>
           </div>
         </aside>
         <section className={styles.mart_body}>
-          {martInfo.map((item, i) => (
-            
+          {carList.length == 0 ? 
+          <h2 className={styles.collection}>No Cars Available at this moment</h2>
+          :
+          carList.map((item, i) => (
               <div className={styles.mart_item} key={i}>
                 <Link href={`/carsales/${item.id}`}>
                 <a className={styles.item_info}>
                     <div className={styles.image}>
                       <img src={item.images[0]} alt="" />
                     </div>
-                    <h4>{item.name}</h4>
+                    <h4>{item.name}<span>{item.model}</span></h4>
                     <h2>
                       {"\u20A6"}
                       {getNumberWithCommas(item.price)}
@@ -69,15 +85,24 @@ function Carsales({ martInfo }) {
 }
 
 export const getServerSideProps = async (pageContext) => {
-  let data = await axios.get(
-    "http://thecarportal.herokuapp.com/automart/carsales/"
-  );
-  let martInfo = await data.data.message;
-  return {
-    props: {
-      martInfo,
-    },
-  };
+  try {
+    let data = await axios.get(
+      "http://thecarportal.herokuapp.com/automart/carsales/"
+    );
+    let martInfo = await data.data.message;
+    return {
+      props: {
+        martInfo,
+      },
+    };
+  } catch (error) {
+    return {
+      redirect: {
+          destination: '/404',
+          permanent: false,
+      }
+    };
+  }
 };
 
 export default Carsales;

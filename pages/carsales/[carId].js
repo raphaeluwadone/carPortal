@@ -7,13 +7,35 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { getNumberWithCommas } from "../../utils/functions";
 import Inspection from "../../components/Inspection";
+import { AiOutlineRight, AiOutlineLeft } from "react-icons/ai"
 
 
 function SingleCar({ item }) {
+
+  const RightArrow = (props) => {
+    const { onClick } = props;
+    return (
+    <div className="btn__body--right" onClick={onClick}>
+        <AiOutlineRight />
+    </div>
+    )
+  }
+
+  const LeftArrow = (props) => {
+    const { onClick } = props;
+    return (
+    <div className= "btn__body--left" onClick={onClick}>
+        <AiOutlineLeft />
+    </div>
+    )
+  }
+  
+
+
   console.log(item);
   const settings = {
     dots: false,
-    infinite: true,
+    infinite: false,
     speed: 1000,
     adaptiveHeight: true,
     slidesToShow: 1,
@@ -24,6 +46,8 @@ function SingleCar({ item }) {
     className: "car_slide",
     arrows: true,
     fade: false,
+    nextArrow: <RightArrow />,
+    prevArrow: <LeftArrow />
   };
 
   const [showIns, setShowIns] = useState(false)
@@ -110,20 +134,6 @@ function SingleCar({ item }) {
             <p>Exterior Color</p>
           </div>
           <p>{item.exterior_color}</p>
-        </div>
-        <div className={styles.feature}>
-          <div className={styles.title}>
-            <img src="https://res.cloudinary.com/rafael-uwadone/image/upload/v1629148558/car-portal/Vehcle_identification_number_adzv3s.png" alt="" />
-            <p>VIN</p>
-          </div>
-          <p>4T1B**********</p>
-        </div>
-        <div className={styles.feature}>
-          <div className={styles.title}>
-            <img src="https://res.cloudinary.com/rafael-uwadone/image/upload/v1629148558/car-portal/Registration_r6se4e.png" alt="" />
-            <p>Vehicle ID</p>
-          </div>
-          <p>f6pikcahu</p>
         </div>
         <div className={styles.feature}>
           <div className={styles.title}>
